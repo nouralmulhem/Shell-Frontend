@@ -1,5 +1,5 @@
 import {styled} from "@mui/material/styles"
-import {Box,Button} from "@mui/material"
+import {Box,Button,TextField} from "@mui/material"
 
 export const SigninConatiner = styled(Box)(()=>({
     display: 'flex',
@@ -7,28 +7,38 @@ export const SigninConatiner = styled(Box)(()=>({
     alignItems:'center',
     justifyContent:'space-around',
     width:'50%',
-    backgroundColor:"aliceblue"
+    padding: 40,
+    backgroundColor:"#eee"
 }));
 
 export const ThirPartyContainer = styled(Box)(()=>({
     display: 'flex',
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'space-around',
+    justifyContent:'center',
     width:'60%',
     // backgroundColor:"blue"
 }));
 
 
-export const ButtonSignUp = styled(Button)(()=>({
-    color: 'white',
-    border: '1px solid white',
+// export const TextFieldStyled = styled(TextField)(()=>({
+//     height:10,
+//     width:'75%',
+
+//     '& .MuiTextField-root':{
+//         height:10
+//     },
+// }));
+
+export const ButtonSignIn = styled(Button)(()=>({
+    color: '#396fd6',
+    border: '1px solid #396fd6',
     width: '50%',
     height: 50,
     fontWeight: 'bold',
     borderRadius: 40,
     '&:hover': {
-        border: '1px solid #adadad',
+        border: '1px solid #396fd6',
     },
 
 }));

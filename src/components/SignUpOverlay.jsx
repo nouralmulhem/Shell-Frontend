@@ -5,7 +5,7 @@ import { ButtonSignUp, SignUpOverlayObj, TypographyH3, TypographyParagraph } fro
 function SignUpOverlay() {
   return (
     <SignUpOverlayObj>
-      <TypographyH3 variant='h3'>Hi There!</TypographyH3>
+      <TypographyH3 variant='h3' sx={{ marginBottom: 4}}>Hi There!</TypographyH3>
       <TypographyParagraph variant='p'>Enter your personal details to open an account with us</TypographyParagraph>
       <ButtonSignUp variant="outlined" onClick={() => document.getElementById('container').classList.add("right-panel-active")}>Sign UP</ButtonSignUp>
     </SignUpOverlayObj>

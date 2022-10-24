@@ -18,7 +18,6 @@ export const SignUpOverlayObj = styled(Box)(()=>({
 export const TypographyH3 = styled(Typography)(()=>({
     fontFamily: `'Montserrat', sans-serif`,
     fontWeight: 'bold',
-    marginBottom: 20,
     color: '#eee',
 
 }));
