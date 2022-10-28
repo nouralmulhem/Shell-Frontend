@@ -36,13 +36,13 @@ function Signin() {
             <Typography variant='subtitle'>or use your account</Typography>
             {/* <TextFieldStyled label="Email" variant="filled"/> */}
             {/* <TextFieldStyled label="Password" variant="filled"/> */}
-            <TextField label="Email" variant="standard" size='small'></TextField>
-            <TextField label="Password" variant="standard" size='small'></TextField>
+            <TextField label="Email" variant="standard" size='small' sx={{width: '80%'}}></TextField>
+            <TextField label="Password" variant="standard" size='small' sx={{width: '80%'}}></TextField>
             
             <Link href="#" variant="body2">
                 Forgot your password?
             </Link>
-            <ButtonSignIn variant="outlined">Sign UP</ButtonSignIn>
+            <ButtonSignIn variant="outlined">Sign in</ButtonSignIn>
         </SigninConatiner>
     )
 }

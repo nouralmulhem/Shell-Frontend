@@ -7,7 +7,8 @@ export const SigninConatiner = styled(Box)(()=>({
     alignItems:'center',
     justifyContent:'space-around',
     width:'50%',
-    padding: 40,
+    padding: '80px 10px',
+
     backgroundColor:"#eee"
 }));
 
