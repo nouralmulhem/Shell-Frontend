@@ -2,9 +2,9 @@
 import React from 'react'
 import { ButtonSignUp, SignUpOverlayObj, TypographyH3, TypographyParagraph } from '../styles/SignupOverlay'
 
-function SignUpOverlay({signIn,setSignIn}) {
+function SignUpOverlay({handleClick}) {
   const toggle =()=>{
-    setSignIn(false)
+    handleClick(false)
   }
   return (
     <SignUpOverlayObj>

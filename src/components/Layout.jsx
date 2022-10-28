@@ -7,14 +7,17 @@ import SignUpOverlay from './SignUpOverlay'
 
 function Layout() {
     const [signIn, setSignIn] = useState(true)
+    const handleClick=(param)=>{
+        setSignIn(param);
+    }
     return (
         <ContainerObj id='container'>
             {signIn?
             <>
-            <Signin></Signin>
-           <SignUpOverlay signIn setSignIn></SignUpOverlay>
+            <Signin/>
+           <SignUpOverlay handleClick={handleClick}/>
            </>:
-           <><SignInOverlay/>
+           <><SignInOverlay handleClick={handleClick}/>
            <Signup/></>
            }
         </ContainerObj>
