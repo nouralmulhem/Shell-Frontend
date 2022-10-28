@@ -1,39 +1,57 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import TextareaAutosize from '@mui/material/TextareaAutosize';
-import { Button } from '@mui/material';
+import {  Button } from '@mui/material';
+import { BoxObj, Description, Title, Upload } from './styles';
+import SendIcon from '@mui/icons-material/Send';
+import axios from 'axios';
+import Swal from "sweetalert2";  
 
 export default function Form() {
+
+  const handleClick = (e) => {
+      e.preventDefault();
+      axios.post("http://localhost:8000/posts", {
+        title: document.getElementById('title').value,
+        description: document.getElementById('desc').value,
+        image: document.getElementById('img').value
+      })
+      .then((response) => {
+        console.log(response);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       
+      });
+  }
+
   return (
-    <Box
-      component="form"
+    <BoxObj onSubmit={handleClick}>
+      <Title id='title' label="Title" variant="standard" required/>
+      <Description
+        id='desc' 
+        minRows={15}
+        placeholder="Description"
+        required
+      />
       
-      sx={{
-        // '& > :not(style)': { m: 1, width: '25ch' },
-        display:'flex',
-        margin:'auto',
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="standard-basic" label="Title" variant="standard" />
-      <TextareaAutosize
-  aria-label="minimum height"
-  minRows={3}
-  placeholder="Description"
-  style={{ width: 400,height:150 }}
-/>
-<Button
-  variant="contained"
-  component="label"
->
-  Upload File
-  <input
-    type="file"
-    hidden
-  />
-</Button>
-    </Box>
+      <Upload
+        variant="contained"
+        component="label"
+      >
+        Upload File
+        <input
+          id='img'
+          type="file"
+          hidden
+        />
+      </Upload>
+
+      <Button variant="contained" endIcon={<SendIcon />} type="submit">
+        Submit
+      </Button>
+
+    </BoxObj>
   );
 }

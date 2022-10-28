@@ -1,12 +1,11 @@
 import Home from'./Components/HomePage/Home.jsx'
-// import Form from './Components/PostForm/Form.jsx';
-
+import Form from './Components/PostForm/Form.jsx';
+import './App.css'
 function App() {
   return (
-    <>
-      <Home/>
-      {/* <Form/> */}
-  </>
+    <div className='App'>
+      <Form/>
+    </div>
   );
 }
 
