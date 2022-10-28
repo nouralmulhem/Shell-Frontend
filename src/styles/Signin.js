@@ -1,14 +1,14 @@
 import {styled} from "@mui/material/styles"
-import {Box,Button,TextField} from "@mui/material"
+import {Box,Button} from "@mui/material"
 
-export const SignConatiner = styled(Box)(()=>({
+export const SignConatiner = styled(Box)(({condition})=>({
     display: 'flex',
     flexDirection:'column',
     alignItems:'center',
     justifyContent:'space-around',
-    width:'50%',
-    padding: '80px 10px',
-
+    width: (condition) ? '50%' : '100%',
+    height: '100%',
+    padding: (condition) ?'80px 10px': '50px 10px',
     backgroundColor:"#eee"
 }));
 

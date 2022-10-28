@@ -19,7 +19,9 @@ export const TypographyH3 = styled(Typography)(()=>({
     fontFamily: `'Montserrat', sans-serif`,
     fontWeight: 'bold',
     color: '#eee',
-
+}));
+export const MyDiv = styled('div')(()=>({
+    overflowWrap: 'break-word',
 }));
 
 export const TypographyParagraph = styled(Typography)(()=>({
@@ -28,9 +30,10 @@ export const TypographyParagraph = styled(Typography)(()=>({
 
 }));
 
-export const ButtonSignUp = styled(Button)(()=>({
-    color: 'white',
-    border: '1px solid white',
+export const ButtonSignUp = styled(Button)(({clr, bgclr})=>({
+    color: `white`,
+    border: `1px solid ${clr}`,
+    backgroundColor: `${bgclr}`,
     width: '50%',
     height: 50,
     fontWeight: 'bold',
@@ -38,5 +41,4 @@ export const ButtonSignUp = styled(Button)(()=>({
     '&:hover': {
         border: '1px solid #adadad',
     },
-
 }));

@@ -4,8 +4,7 @@ import { ButtonSign, SignConatiner} from '../styles/Signin'
 import { TypographyH3 } from '../styles/SignupOverlay'
 import SocialAccounts from './SocialAccounts'
 
-
-function Signin() {
+function Signin({btn}) {
     return (
         <SignConatiner>
             {/* Sign in */}
@@ -19,6 +18,7 @@ function Signin() {
                 Forgot your password?
             </Link>
             <ButtonSign variant="outlined">Sign in</ButtonSign>
+            {btn}
         </SignConatiner>
     )
 }
