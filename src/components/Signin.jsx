@@ -4,9 +4,9 @@ import { ButtonSign, SignConatiner} from '../styles/Signin'
 import { TypographyH3 } from '../styles/SignupOverlay'
 import SocialAccounts from './SocialAccounts'
 
-function Signin({btn}) {
+function Signin({btn ,condition}) {
     return (
-        <SignConatiner>
+        <SignConatiner condition={condition}>
             {/* Sign in */}
             <TypographyH3 variant='h3' sx={{color:"black"}}>Sign in</TypographyH3>
             <SocialAccounts/>

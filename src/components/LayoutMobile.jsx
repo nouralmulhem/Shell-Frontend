@@ -42,10 +42,10 @@ const classes = useStyles();
   return (
       <ContainerObj dirc='row'>
         <Box id='first' className='init' sx={{ minWidth:'100%'}} >
-            <Signin btn={btn} />
+            <Signin btn={btn} condition={false}/>
         </Box>
         <Box  id='second' className='init' sx={{ minWidth:'100%'}} >
-            <Signup btn2={btn2}/>
+            <Signup btn2={btn2} condition={false}/>
         </Box>
         </ContainerObj>
   )

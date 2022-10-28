@@ -3,13 +3,11 @@ import { ButtonSign, SignConatiner} from '../styles/Signin'
 import { TypographyH3 } from '../styles/SignupOverlay'
 import SocialAccounts from './SocialAccounts'
 
-function Signup({btn2}) {
+function Signup({btn2, condition}) {
   return (
-    <SignConatiner>
+    <SignConatiner condition={condition}>
         {/* Sign up */}
-        <Box sx={{ }}>
-            <TypographyH3 variant='h4' sx={{color:"black"}}>Create Account</TypographyH3>
-        </Box>
+        <TypographyH3 variant='h4' sx={{color:"black"}}>Create Account</TypographyH3>
         <SocialAccounts/>
         <Typography variant='subtitle'>or use your email for regrstration</Typography>
         <TextField label="Name" variant="standard" size='small' sx={{width: '80%'}}></TextField>

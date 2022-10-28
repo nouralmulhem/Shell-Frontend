@@ -40,12 +40,12 @@ function LayoutDesktop() {
     return (
         <ContainerObj dirc='column'>
         <Box id='first' className='init' sx={{display: 'flex', minHeight:'100%'}} >
-            <Signin/>
+            <Signin condition/>
             <SignUpOverlay handleClick={handleClick}/>
         </Box>
         <Box  id='second' className='init' sx={{display: 'flex', minHeight:'100%'}} >
             <SignInOverlay handleClick2={handleClick2}/>
-            <Signup/>
+            <Signup condition/>
         </Box>
         </ContainerObj>
 
