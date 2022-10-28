@@ -2,12 +2,15 @@
 import React from 'react'
 import { ButtonSignUp, SignUpOverlayObj, TypographyH3, TypographyParagraph } from '../styles/SignupOverlay'
 
-function SignUpOverlay() {
+function SignUpOverlay({signIn,setSignIn}) {
+  const toggle =()=>{
+    setSignIn(false)
+  }
   return (
     <SignUpOverlayObj>
       <TypographyH3 variant='h3' sx={{ marginBottom: 4}}>Hi There!</TypographyH3>
       <TypographyParagraph variant='p'>Enter your personal details to open an account with us</TypographyParagraph>
-      <ButtonSignUp variant="outlined" onClick={() => document.getElementById('container').classList.add("right-panel-active")}>Sign UP</ButtonSignUp>
+      <ButtonSignUp variant="outlined" onClick={toggle}>Sign UP</ButtonSignUp>
     </SignUpOverlayObj>
   )
 }

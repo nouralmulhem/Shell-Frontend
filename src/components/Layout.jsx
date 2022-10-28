@@ -6,13 +6,17 @@ import Signup from './Signup'
 import SignUpOverlay from './SignUpOverlay'
 
 function Layout() {
-    // const [signIn, setSignIn] = useState(true)
+    const [signIn, setSignIn] = useState(true)
     return (
         <ContainerObj id='container'>
-           {/* <Signin></Signin>
-           <SignUpOverlay></SignUpOverlay> */}
-            <SignInOverlay/>
-            <Signup/>
+            {signIn?
+            <>
+            <Signin></Signin>
+           <SignUpOverlay signIn setSignIn></SignUpOverlay>
+           </>:
+           <><SignInOverlay/>
+           <Signup/></>
+           }
         </ContainerObj>
     )
 }
