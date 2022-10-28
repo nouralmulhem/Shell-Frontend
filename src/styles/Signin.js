@@ -1,7 +1,7 @@
 import {styled} from "@mui/material/styles"
 import {Box,Button,TextField} from "@mui/material"
 
-export const SigninConatiner = styled(Box)(()=>({
+export const SignConatiner = styled(Box)(()=>({
     display: 'flex',
     flexDirection:'column',
     alignItems:'center',
@@ -21,17 +21,7 @@ export const ThirPartyContainer = styled(Box)(()=>({
     // backgroundColor:"blue"
 }));
 
-
-// export const TextFieldStyled = styled(TextField)(()=>({
-//     height:10,
-//     width:'75%',
-
-//     '& .MuiTextField-root':{
-//         height:10
-//     },
-// }));
-
-export const ButtonSignIn = styled(Button)(()=>({
+export const ButtonSign = styled(Button)(()=>({
     color: '#396fd6',
     border: '1px solid #396fd6',
     width: '50%',
