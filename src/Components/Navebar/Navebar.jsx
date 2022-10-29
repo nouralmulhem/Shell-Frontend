@@ -1,4 +1,6 @@
 import * as React from "react";
+import AppBar from "@mui/material/AppBar/AppBar";
+import Box from "@mui/material/Box/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -7,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import PostLink from "./Navbar.js"
 import { BrowserRouter as Router,Link }from 'react-router-dom'
 import Form from "../PostForm/Form.jsx"
 import { Hidden } from "@mui/material";
@@ -33,6 +36,7 @@ function ResponsiveAppBar() {
   const handleAbout = () => {
     console.log("About");
   };
+  const handleAddPost = () => {
     console.log("Add Post");
   };
 
