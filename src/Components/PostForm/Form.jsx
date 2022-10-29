@@ -22,36 +22,42 @@ export default function Form() {
           showConfirmButton: false,
           timer: 1500
         })
+        setTimeout(()=>{
+          document.location.href ='http://localhost:3000';
+        },1500)
        
       });
   }
 
   return (
-    <BoxObj onSubmit={handleClick}>
-      <Title id='title' label="Title" variant="standard" required/>
-      <Description
-        id='desc' 
-        minRows={15}
-        placeholder="Description"
-        required
-      />
-      
-      <Upload
-        variant="contained"
-        component="label"
-      >
-        Upload File
-        <input
-          id='img'
-          type="file"
-          hidden
+    <div className='FormHeader'>
+      <BoxObj onSubmit={handleClick}>
+        <Title id='title' label="Title" variant="standard" required />
+        <Description
+          id='desc'
+          minRows={15}
+          placeholder="Description"
+          required
         />
-      </Upload>
 
-      <Button variant="contained" endIcon={<SendIcon />} type="submit">
-        Submit
-      </Button>
+        <Upload
+          variant="contained"
+          component="label"
+        >
+          Upload File
+          <input
+            id='img'
+            type="file"
+            hidden
+          />
+        </Upload>
 
-    </BoxObj>
+        <Button variant="contained" endIcon={<SendIcon />} type="submit">
+          Submit
+        </Button>
+
+      </BoxObj>
+    </div>
+    
   );
 }
