@@ -1,7 +1,7 @@
 import {styled} from "@mui/material/styles"
 import {Box,Button} from "@mui/material"
 
-export const SignConatiner = styled(Box)(({condition})=>({
+export const SignConatiner = styled('form')(({condition})=>({
     display: 'flex',
     flexDirection:'column',
     alignItems:'center',
