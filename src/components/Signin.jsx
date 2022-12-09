@@ -1,6 +1,12 @@
-import { Typography, TextField, Link } from "@mui/material";
-import axios from "axios";
 import React, { useState } from "react";
+
+//axios
+import axios from '../services/instance'
+
+//MUI
+import { Typography, TextField, Link } from "@mui/material";
+
+//Styles
 import { ButtonSign, SignConatiner } from "../styles/Signin";
 import { TypographyH3 } from "../styles/SignupOverlay";
 import SocialAccounts from "./SocialAccounts";
@@ -11,14 +17,13 @@ function Signin({ btn, condition }) {
 
   const signIn = (e) => {
     e.preventDefault();
-    axios
-      .post("https://cuert-backend.herokuapp.com/auth/login/", {
+    axios.post("/auth/login/", {
         'username': { userName },
         'password': { password },
       })
       .then((response) => {
         console.log(response);
-        if (response.status === 200) {
+        if (response.status === 200 || response.status === 201) {
           window.location.href = "./";
         } else {
           alert("incorrect username or password");
