@@ -14,7 +14,7 @@ export default function Home() {
     setTimeout(() => {
         console.log(post);
         console.log(cur);
-},1000)
+        },1000)
     
     let [cur,setCur]=React.useState('0');
     
