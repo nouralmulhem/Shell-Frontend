@@ -9,10 +9,11 @@ import useFetch from '../fetch.js'
 
 export default function Home() {
     let {posts:post} = useFetch('http://localhost:8000/posts');
-    setTimeout(() => {
-        console.log(post);
-        console.log(cur);
-        },1000)
+    const [posts,setPosts] = React.useState(null)
+    React.useEffect(() => {
+        setPosts(post);
+    }, [post])
+    
     
     let [cur,setCur]=React.useState('0');
     
@@ -22,17 +23,17 @@ export default function Home() {
     return (
         <Box >
             <ResponsiveAppBar />
-            {post && 
+            {posts && 
             <Card
-                backgroundImage={'url('+post[cur].image+')'}
-                name={post && post[cur].title}
-                text={post[cur].description}
-                header={post && post[cur].title}
+                backgroundImage={'url('+posts[cur]?.image+')'}
+                name={posts && posts[cur]?.title}
+                text={posts[cur]?.description}
+                header={posts && posts[cur]?.title}
             
             /> }
            
-            {post && <Stack spacing={2} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-                <Pagination count={post.length} color="primary" onChange={(e, num) => {
+            {posts && <Stack spacing={2} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
+                <Pagination count={posts?.length} color="primary" onChange={(e, num) => {
                     pagChange(num);
                 }} />
             </Stack>

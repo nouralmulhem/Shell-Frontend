@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonSignUp, SignUpOverlayObj, TypographyH3, TypographyParagraph } from '../styles/SignupOverlay'
+import { ButtonSignUp, SignUpOverlayObj, TypographyH3, TypographyParagraph } from '../../styles/SignupOverlay'
 
 function SignUpOverlay({handleClick}) {
   const toggle =()=>{

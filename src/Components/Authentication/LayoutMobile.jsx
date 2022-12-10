@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 // import { makeStyles } from '@mui/styles'
-import { ContainerObj } from '../styles/Layout'
-import { ButtonSignUp } from '../styles/SignupOverlay'
+import { ContainerObj } from '../../styles/Layout'
+import { ButtonSignUp } from '../../styles/SignupOverlay'
 import Signin from './Signin'
 import Signup from './Signup'
 import { makeStyles } from '@mui/styles'
@@ -40,14 +40,16 @@ const classes = useStyles();
     const btn = <ButtonSignUp variant="contained" bgclr="#396fd6" onClick={handleClickMobile}>Sign Up</ButtonSignUp>
     const btn2 = <ButtonSignUp variant="contained" bgclr="#396fd6" onClick={handleClickMobile2}>Sign In</ButtonSignUp>
   return (
-      <ContainerObj dirc='row'>
-        <Box id='first' className='init' sx={{ minWidth:'100%'}} >
-            <Signin btn={btn} condition={false}/>
-        </Box>
-        <Box  id='second' className='init' sx={{ minWidth:'100%'}} >
-            <Signup btn2={btn2} condition={false}/>
-        </Box>
+    <div className='FormHeader'>
+        <ContainerObj dirc='row'>
+            <Box id='first' className='init' sx={{ minWidth:'100%'}} >
+                <Signin btn={btn} condition={false}/>
+            </Box>
+            <Box  id='second' className='init' sx={{ minWidth:'100%'}} >
+                <Signup btn2={btn2} condition={false}/>
+            </Box>
         </ContainerObj>
+    </div>
   )
 }
 

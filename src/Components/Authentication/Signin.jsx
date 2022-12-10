@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 //axios
-import axios from '../services/instance'
+import axios from '../../services/instance'
 
 //MUI
 import { Typography, TextField, Link } from "@mui/material";
 
 //Styles
-import { ButtonSign, SignConatiner } from "../styles/Signin";
-import { TypographyH3 } from "../styles/SignupOverlay";
+import { ButtonSign, SignConatiner } from "../../styles/Signin";
+import { TypographyH3 } from "../../styles/SignupOverlay";
 import SocialAccounts from "./SocialAccounts";
 
 function Signin({ btn, condition }) {

@@ -1,8 +1,8 @@
 import { Typography, TextField } from "@mui/material";
-import axios from '../services/instance'
+import axios from '../../services/instance'
 import { useState } from "react";
-import { ButtonSign, SignConatiner } from "../styles/Signin";
-import { TypographyH3 } from "../styles/SignupOverlay";
+import { ButtonSign, SignConatiner } from "../../styles/Signin";
+import { TypographyH3 } from "../../styles/SignupOverlay";
 import SocialAccounts from "./SocialAccounts";
 
 function Signup({ btn2, condition }) {

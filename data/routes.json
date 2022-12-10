@@ -1,4 +1,5 @@
 {
     "/auth/login":"/login",
-    "/auth/register":"/register"
+    "/auth/register":"/register",
+    "/posts":"/posts"
 }

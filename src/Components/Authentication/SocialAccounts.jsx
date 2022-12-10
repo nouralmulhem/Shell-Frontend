@@ -1,6 +1,6 @@
 import { Avatar, IconButton } from '@mui/material'
 import React from 'react'
-import {ThirPartyContainer } from '../styles/Signin'
+import {ThirPartyContainer } from '../../styles/Signin'
 
 function SocialAccounts() {
   return (

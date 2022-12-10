@@ -1,14 +1,15 @@
 import {  Button } from '@mui/material';
 import { BoxObj, Description, Title, Upload } from './styles';
 import SendIcon from '@mui/icons-material/Send';
-import axios from 'axios';
 import Swal from "sweetalert2";  
+//axios
+import axios from '../../services/instance'
 
 export default function Form() {
 
   const handleClick = (e) => {
       e.preventDefault();
-      axios.post("http://localhost:8000/posts", {
+      axios.post("/posts/add/", {
         title: document.getElementById('title').value,
         description: document.getElementById('desc').value,
         image: document.getElementById('img').value
@@ -23,10 +24,18 @@ export default function Form() {
           timer: 1500
         })
         setTimeout(()=>{
-          document.location.href ='http://localhost:3000';
+          document.location.href ='./';
         },1500)
        
-      });
+      }).catch((error) => {
+          console.log(error);
+          if(error?.response?.data?.email || error?.response?.data?.username) {
+              alert(`${error?.response?.data?.email}\n${error?.response?.data?.username}`);
+          }
+          else if(error?.response?.data?.password!==undefined) {
+              alert(error?.response?.data?.password);
+          }
+        });
   }
 
   return (

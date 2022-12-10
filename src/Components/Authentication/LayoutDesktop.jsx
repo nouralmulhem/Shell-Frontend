@@ -1,6 +1,6 @@
 import { Box } from '@mui/material'
 import { makeStyles } from '@mui/styles'
-import { ContainerObj } from '../styles/Layout'
+import { ContainerObj } from '../../styles/Layout'
 import Signin from './Signin'
 import SignInOverlay from './SignInOverlay'
 import Signup from './Signup'
@@ -38,16 +38,18 @@ function LayoutDesktop() {
        document.getElementById('second').classList.add(`${classes.toggleUp}`);
     }
     return (
-        <ContainerObj dirc='column'>
-        <Box id='first' className='init' sx={{display: 'flex', minHeight:'100%'}} >
-            <Signin condition/>
-            <SignUpOverlay handleClick={handleClick}/>
-        </Box>
-        <Box  id='second' className='init' sx={{display: 'flex', minHeight:'100%'}} >
-            <SignInOverlay handleClick2={handleClick2}/>
-            <Signup condition/>
-        </Box>
-        </ContainerObj>
+        <div className='FormHeader'>
+            <ContainerObj dirc='column'>
+            <Box id='first' className='init' sx={{display: 'flex', minHeight:'100%'}} >
+                <Signin condition/>
+                <SignUpOverlay handleClick={handleClick}/>
+            </Box>
+            <Box  id='second' className='init' sx={{display: 'flex', minHeight:'100%'}} >
+                <SignInOverlay handleClick2={handleClick2}/>
+                <Signup condition/>
+            </Box>
+            </ContainerObj>
+        </div>
 
     )
 }
