@@ -24,7 +24,7 @@ function Signin({ btn, condition }) {
       .then((response) => {
         console.log(response);
         if (response.status === 200 || response.status === 201) {
-          window.location.href = "./";
+          window.location.href = "./login";
         } else {
           alert("incorrect username or password");
         }

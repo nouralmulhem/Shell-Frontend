@@ -25,9 +25,9 @@ function Signup({ btn2, condition }) {
       })
       .then((response) => {
         console.log(response.data);
-        if (response.status === 201) {
+        if (response.status === 200 || response.status === 201) {
           alert('you registered successfully');
-          window.location.href = "./";
+          window.location.href = "./login";
         }
       })
       .catch((error) => {

@@ -1,4 +1,4 @@
-import Authentication from "../components/Authentication"
+import Authentication from "../Components/Authentication/Authentication"
 
 function Pages() {
   return (
