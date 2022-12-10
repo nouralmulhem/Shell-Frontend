@@ -5,12 +5,10 @@ import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import useFetch from '../fetch.js'
-import { useParams } from "react-router-dom";
-import { PostAddSharp } from "@mui/icons-material";
 // import { Image } from "../Card/style";
 
 export default function Home() {
-    let {posts:post,isPending,error} = useFetch('http://localhost:8000/posts');
+    let {posts:post} = useFetch('http://localhost:8000/posts');
     setTimeout(() => {
         console.log(post);
         console.log(cur);
