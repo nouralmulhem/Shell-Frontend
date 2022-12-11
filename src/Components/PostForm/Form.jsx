@@ -11,8 +11,8 @@ export default function Form() {
       e.preventDefault();
       axios.post("/posts/add/", {
         title: document.getElementById('title').value,
-        description: document.getElementById('desc').value,
-        image: document.getElementById('img').value
+        body: document.getElementById('desc').value,
+        //image: document.getElementById('img').value
       })
       .then((response) => {
         console.log(response);

@@ -8,7 +8,9 @@ import useFetch from '../fetch.js'
 // import { Image } from "../Card/style";
 
 export default function Home() {
-    let {posts:post} = useFetch('http://localhost:8000/posts');
+   // let {posts:post} = useFetch('http://localhost:8000/posts');
+    let {posts:post} = useFetch('https://cuert-backend-api.herokuapp.com/members/posts/');
+
     const [posts,setPosts] = React.useState(null)
     React.useEffect(() => {
         setPosts(post);
@@ -27,13 +29,13 @@ export default function Home() {
             <Card
                 backgroundImage={'url('+posts[cur]?.image+')'}
                 name={posts && posts[cur]?.title}
-                text={posts[cur]?.description}
+                text={posts[cur]?.body}
                 header={posts && posts[cur]?.title}
             
             /> }
            
             {posts && <Stack spacing={2} sx={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-                <Pagination count={posts?.length} color="primary" onChange={(e, num) => {
+                <Pagination count={posts?.length -1} color="primary" onChange={(e, num) => {
                     pagChange(num);
                 }} />
             </Stack>
