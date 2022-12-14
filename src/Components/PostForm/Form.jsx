@@ -12,7 +12,7 @@ export default function Form() {
       axios.post("/posts/add/", {
         title: document.getElementById('title').value,
         body: document.getElementById('desc').value,
-        //image: document.getElementById('img').value
+        image: document.getElementById('img').value
       })
       .then((response) => {
         console.log(response);
