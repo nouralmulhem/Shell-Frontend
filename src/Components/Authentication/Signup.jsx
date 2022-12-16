@@ -16,7 +16,7 @@ function Signup({ btn2, condition }) {
   const signUp = (e) => {
     e.preventDefault();
     const [first, last] = name.split(" ");
-    axios.post("http://cuert-backend-api.herokuapp.com/auth/register/", {
+    axios.post("https://cuert-backend-api.herokuapp.com/auth/register/", {
         'username': userName ,
         'password': password ,
         'password2': password2 ,

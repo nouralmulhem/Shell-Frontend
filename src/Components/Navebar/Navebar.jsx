@@ -93,7 +93,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            onClick={()=>{ window.location.pathname = 'login';}}
+            //onClick={()=>{ window.location.pathname = 'login';}}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -106,7 +106,7 @@ function ResponsiveAppBar() {
               cursor:'pointer'
             }}
           >
-            Join Us
+            <PostLink to={"/login"}>Join Us</PostLink>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex"},justifyContent:'space-between' }}>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex"}}}>

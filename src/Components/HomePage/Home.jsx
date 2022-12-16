@@ -16,7 +16,7 @@ export default function Home() {
 
   React.useEffect(() => {
     axios
-      .get("http://cuert-backend-api.herokuapp.com/members/posts/")
+      .get("https://cuert-backend-api.herokuapp.com/members/posts/")
       .then((response) => {
         console.log(response);
         setStatusCode(response.status);
