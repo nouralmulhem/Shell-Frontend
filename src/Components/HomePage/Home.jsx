@@ -16,7 +16,7 @@ export default function Home() {
       .get("/members/posts/")
       .then((response) => {
         console.log(response);
-        setPosts(response.data.posts);
+        setPosts(response.data);
       })
       .catch((error) => {
         console.log(error);

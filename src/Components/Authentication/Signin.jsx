@@ -18,13 +18,13 @@ function Signin({ btn, condition }) {
   const signIn = (e) => {
     e.preventDefault();
     axios.post("/auth/login/", {
-        'username': { userName },
-        'password': { password },
+        'username':  userName ,
+        'password':  password ,
       })
       .then((response) => {
         console.log(response);
         if (response.status === 200 || response.status === 201) {
-          window.location.href = "./login";
+          window.location.href = "./";
         } else {
           alert("incorrect username or password");
         }
