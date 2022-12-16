@@ -34,7 +34,7 @@ function ResponsiveAppBar() {
     console.log("About");
   };
   const handleAddPost = () => {
-    window.location.pathname = 'login';
+    window.location.pathname = 'AddPost';
   };
 
   return (

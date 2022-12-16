@@ -10,7 +10,7 @@ export default function Form() {
 
   const handleClick = (e) => {
       e.preventDefault();
-      axios.post("https://cuert-backend-api.herokuapp.com/posts/add/", {
+      axios.post("https://cuert-backend-api.herokuapp.com/members/posts/add/", {
         title: document.getElementById('title').value,
         body: document.getElementById('desc').value,
         image: document.getElementById('img').value
