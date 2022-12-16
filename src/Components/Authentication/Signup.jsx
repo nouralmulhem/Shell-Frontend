@@ -1,5 +1,6 @@
 import { Typography, TextField } from "@mui/material";
-import axios from '../../services/instance'
+// import axios from '../../services/instance'
+import axios from 'axios';
 import { useState } from "react";
 import { ButtonSign, SignConatiner } from "../../styles/Signin";
 import { TypographyH3 } from "../../styles/SignupOverlay";
@@ -15,7 +16,7 @@ function Signup({ btn2, condition }) {
   const signUp = (e) => {
     e.preventDefault();
     const [first, last] = name.split(" ");
-    axios.post("/auth/register/", {
+    axios.post("http://cuert-backend-api.herokuapp.com/auth/register/", {
         'username': userName ,
         'password': password ,
         'password2': password2 ,

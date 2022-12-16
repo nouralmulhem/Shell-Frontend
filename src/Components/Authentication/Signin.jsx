@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 //axios
-import axios from '../../services/instance'
+// import axios from '../../services/instance'
+import axios from 'axios';
+
 
 //MUI
 import { Typography, TextField, Link } from "@mui/material";
@@ -17,7 +19,7 @@ function Signin({ btn, condition }) {
 
   const signIn = (e) => {
     e.preventDefault();
-    axios.post("/auth/login/", {
+    axios.post("http://cuert-backend-api.herokuapp.com/auth/login/", {
         'username':  userName ,
         'password':  password ,
       })

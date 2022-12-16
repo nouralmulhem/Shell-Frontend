@@ -10,9 +10,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import PostLink from "./Navbar.js"
-import { BrowserRouter as Router,Link }from 'react-router-dom'
-import Form from "../PostForm/Form.jsx"
-import { Hidden } from "@mui/material";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,7 +34,7 @@ function ResponsiveAppBar() {
     console.log("About");
   };
   const handleAddPost = () => {
-    console.log("Add Post");
+    window.location.pathname = 'login';
   };
 
   return (
@@ -86,6 +83,9 @@ function ResponsiveAppBar() {
               </MenuItem>
               <MenuItem key="About" onClick={handleAbout}>
                 <Typography textAlign="center">About</Typography>
+              </MenuItem>
+              <MenuItem key="AddPost" onClick={handleAddPost}>
+                <Typography textAlign="center">Add Post</Typography>
               </MenuItem>
             </Menu>
           </Box>

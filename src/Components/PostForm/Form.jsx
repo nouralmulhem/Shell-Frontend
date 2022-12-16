@@ -3,13 +3,14 @@ import { BoxObj, Description, Title, Upload } from './styles';
 import SendIcon from '@mui/icons-material/Send';
 import Swal from "sweetalert2";  
 //axios
-import axios from '../../services/instance'
+// import axios from '../../services/instance'
+import axios from 'axios';
 
 export default function Form() {
 
   const handleClick = (e) => {
       e.preventDefault();
-      axios.post("/posts/add/", {
+      axios.post("http://cuert-backend-api.herokuapp.com/posts/add/", {
         title: document.getElementById('title').value,
         body: document.getElementById('desc').value,
         image: document.getElementById('img').value

@@ -4,7 +4,8 @@ import { Box } from "@mui/system";
 import * as React from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import axios from "../../services/instance";
+// import axios from "../../services/instance";
+import axios from 'axios';
 
 export default function Home() {
   // let {posts:post} = useFetch('http://localhost:8000/posts');
@@ -15,7 +16,7 @@ export default function Home() {
 
   React.useEffect(() => {
     axios
-      .get("/members/posts/")
+      .get("http://cuert-backend-api.herokuapp.com/members/posts/")
       .then((response) => {
         console.log(response);
         setStatusCode(response.status);
