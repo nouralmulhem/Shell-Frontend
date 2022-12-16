@@ -11,16 +11,23 @@ export default function Home() {
   // let {posts:post} = useFetch('http://localhost:8000/members/posts/');
 
   const [posts, setPosts] = React.useState(null);
+  const [statusCode, setStatusCode] = React.useState(null);
+
   React.useEffect(() => {
     axios
       .get("/members/posts/")
       .then((response) => {
         console.log(response);
+        setStatusCode(response.status);
         setPosts(response.data);
       })
       .catch((error) => {
+        setStatusCode(error.response.status);
         console.log(error);
       });
+      if (statusCode === 401 ) {
+        window.location.pathname = 'login';
+      }
   }, []);
 
   React.useEffect(() => {

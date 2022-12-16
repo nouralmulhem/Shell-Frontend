@@ -23,6 +23,9 @@ export default function Form() {
           showConfirmButton: false,
           timer: 1500
         })
+        if (response.status === 401 ) {
+          window.location.pathname = 'login';
+        }
         setTimeout(()=>{
           document.location.href ='./';
         },1500)
