@@ -93,6 +93,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
+            onClick={()=>{ window.location.pathname = 'login';}}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -102,6 +103,7 @@ function ResponsiveAppBar() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              cursor:'pointer'
             }}
           >
             Join Us
