@@ -1,0 +1,6 @@
+{
+    "/auth/login":"/login",
+    "/auth/register":"/register",
+    "/members/posts":"/posts",
+    "/posts/add":"/post"
+}
