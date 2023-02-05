@@ -1,34 +1,32 @@
-import React, { useState } from "react";
-
-//axios
+// axios
 // import axios from '../../services/instance'
 import axios from 'axios';
 
+// MUI
+import { Typography, TextField, Link } from '@mui/material';
 
-//MUI
-import { Typography, TextField, Link } from "@mui/material";
-
-//Styles
-import { ButtonSign, SignConatiner } from "../../styles/Signin";
-import { TypographyH3 } from "../../styles/SignupOverlay";
-import SocialAccounts from "./SocialAccounts";
+// Styles
+import { useState } from 'react';
+import { ButtonSign, SignConatiner } from '../../styles/Signin';
+import { TypographyH3 } from '../../styles/SignupOverlay';
+import SocialAccounts from './SocialAccounts';
 
 function Signin({ btn, condition }) {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
 
   const signIn = (e) => {
     e.preventDefault();
-    axios.post("https://cuert-backend-api.herokuapp.com/auth/login/", {
-        'username':  userName ,
-        'password':  password ,
-      })
+    axios.post('https://cuert-backend-api.herokuapp.com/auth/login/', {
+      username: userName,
+      password,
+    })
       .then((response) => {
         console.log(response);
         if (response.status === 200 || response.status === 201) {
-          window.location.href = "./";
+          window.location.href = './';
         } else {
-          alert("incorrect username or password");
+          alert('incorrect username or password');
         }
       })
       .catch((error) => console.log(error));
@@ -36,7 +34,7 @@ function Signin({ btn, condition }) {
   return (
     <SignConatiner condition={condition} onSubmit={signIn}>
       {/* Sign in */}
-      <TypographyH3 variant="h3" sx={{ color: "black" }}>
+      <TypographyH3 variant="h3" sx={{ color: 'black' }}>
         Sign in
       </TypographyH3>
       <SocialAccounts />
@@ -47,7 +45,7 @@ function Signin({ btn, condition }) {
         required
         variant="standard"
         size="small"
-        sx={{ width: "80%" }}
+        sx={{ width: '80%' }}
         onChange={(e) => {
           setUserName(e.target.value.trim());
         }}
@@ -58,12 +56,12 @@ function Signin({ btn, condition }) {
         required
         variant="standard"
         size="small"
-        sx={{ width: "80%", marginBottom: 2 }}
+        sx={{ width: '80%', marginBottom: 2 }}
         onChange={(e) => {
           setPassword(e.target.value.trim());
         }}
       />
-      <Link href="#" variant="body2">
+      <Link href="/" variant="body2">
         Forgot your password?
       </Link>
       <ButtonSign variant="outlined" type="submit">Sign in</ButtonSign>

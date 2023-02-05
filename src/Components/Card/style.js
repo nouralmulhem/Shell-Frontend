@@ -1,10 +1,10 @@
-import { Card, styled } from "@mui/material";
+import { Card, styled } from '@mui/material';
 
 const Post = styled(Card)(({ backgroundImage }) => ({
   backgroundImage,
-  width: "75%",
+  width: '75%',
   height: '80vh',
-  display: "flex",
+  display: 'flex',
   flexDirection: 'column',
   justifyContent: 'end',
   margin: 'auto',
@@ -12,7 +12,7 @@ const Post = styled(Card)(({ backgroundImage }) => ({
   marginBottom: 10,
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  color: 'white'
+  color: 'white',
 }));
 export default Post;
 
@@ -20,4 +20,4 @@ export default Post;
 //     src,
 //     width:'100%',
 //     height:'100vh',
-// }));  
+// }));

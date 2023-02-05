@@ -1,16 +1,17 @@
-import {styled} from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
- const PostLink= styled(Link)({
+
+const PostLink = styled(Link)({
   textDecoration: 'none',
   color: 'white',
-  '&: hover':{
+  '&: hover': {
     textDecoration: 'none',
-    color: 'white'
+    color: 'white',
   },
   '&: visited': {
     textDecoration: 'none',
-    color: 'white'
-  }
-})
+    color: 'white',
+  },
+});
 
 export default PostLink;

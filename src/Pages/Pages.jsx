@@ -1,9 +1,9 @@
-import Authentication from "../Components/Authentication/Authentication"
+import Authentication from '../Components/Authentication/Authentication';
 
 function Pages() {
   return (
-    <Authentication/>
-  )
+    <Authentication />
+  );
 }
 
-export default Pages
+export default Pages;

@@ -5,8 +5,9 @@
   width: 100vw;
   background-color: #f6f5f7;
 }
+
 .FormHeader {
-  height: 100vh;
+  height: calc(100vh - 68.5px);
   width: 100vw;
   text-align: center;
   display: flex;

@@ -5,7 +5,6 @@ import Stack from '@mui/material/Stack';
 // import axios from "../../services/instance";
 import axios from 'axios';
 import Card from '../Card/NewCard';
-import ResponsiveAppBar from '../Navebar/Navebar';
 
 export default function Home() {
   // let {posts:post} = useFetch('http://localhost:8000/posts');
@@ -42,7 +41,6 @@ export default function Home() {
   };
   return (
     <Box>
-      <ResponsiveAppBar />
       {posts && (
         <Card
           backgroundImage={`url(${posts[cur]?.image})`}
