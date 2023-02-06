@@ -9,7 +9,10 @@ function RecruitmentContextProvider(props) {
   const { children } = props;
 
   // State
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState({
+    step: 1,
+    progress: 0, // 0-100
+  });
   const [info, setInfo] = useState({});
 
   const value = useMemo(() => ({

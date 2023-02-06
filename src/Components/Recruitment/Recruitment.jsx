@@ -1,12 +1,23 @@
+// Context
 import { useRecruitmentContext } from '../../contexts/RecruitmentContext';
+
+// Components
 import AboutMe from './AboutMe/AboutMe';
+import AboutUs from './AboutMe/AboutUs';
+import Experience from './AboutMe/Experience';
+
+// Styles
+import { BorderLinearProgress } from './styles';
 
 function Recruitment() {
   const { step } = useRecruitmentContext();
   return (
-    step === 1 ? <AboutMe />
-      : step === 2 ? <h1>Experience you have</h1>
-        : <h1>What do you know about us</h1>
+    <>
+      {step.step === 1 ? <AboutMe />
+        : step.step === 2 ? <Experience />
+          : <AboutUs />}
+      <BorderLinearProgress variant="determinate" value={step.progress} />
+    </>
   );
 }
 

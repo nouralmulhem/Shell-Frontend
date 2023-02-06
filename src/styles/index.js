@@ -10,6 +10,10 @@ const theme = createTheme({
       back: '#abcfff',
 
     },
+    progressbar: {
+      main: '#1a90ff',
+      gray: '#bdbdbd',
+    },
   },
 });
 
