@@ -13,6 +13,7 @@ function Recruitment() {
   const { step } = useRecruitmentContext();
   return (
     <>
+
       {step.step === 1 ? <AboutMe />
         : step.step === 2 ? <Experience />
           : <AboutUs />}

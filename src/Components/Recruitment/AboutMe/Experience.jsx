@@ -15,7 +15,6 @@ function Experience() {
               step: 1,
               progress: 0,
             });
-
             // Save Submitted Date VIP
             setInfo((state) => ({
               ...state,
@@ -26,14 +25,12 @@ function Experience() {
         >
           Back
         </BackButton>
-
         <NextButton
           onClick={() => {
             setStep({
               step: 3,
               progress: 40,
             });
-
             // Save Submitted Date
             setInfo((state) => ({
               ...state,
