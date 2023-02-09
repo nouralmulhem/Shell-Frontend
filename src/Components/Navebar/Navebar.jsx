@@ -36,6 +36,9 @@ function ResponsiveAppBar() {
   const handleAddPost = () => {
     window.location.pathname = 'AddPost';
   };
+  const handleJoinUs = () => {
+    window.location.pathname = 'Recruitment';
+  };
 
   return (
     <AppBar position="static">
@@ -86,6 +89,9 @@ function ResponsiveAppBar() {
               <MenuItem key="AddPost" onClick={handleAddPost}>
                 <Typography textAlign="center">Add Post</Typography>
               </MenuItem>
+              <MenuItem key="AddPost" onClick={handleJoinUs}>
+                <Typography textAlign="center">Join Us</Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -105,7 +111,7 @@ function ResponsiveAppBar() {
               cursor: 'pointer',
             }}
           >
-            <PostLink to="/login">Join Us</PostLink>
+            <PostLink to="/login">Sign in</PostLink>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between' }}>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -114,8 +120,9 @@ function ResponsiveAppBar() {
               <Button><PostLink to="/">Gallary</PostLink></Button>
               <Button><PostLink to="/">About</PostLink></Button>
               <Button><PostLink to="/AddPost">Add Post</PostLink></Button>
+              <Button><PostLink to="/Recruitment">join us</PostLink></Button>
             </Box>
-            <Button><PostLink to="/login">Join Us</PostLink></Button>
+            <Button><PostLink to="/login">Sign in</PostLink></Button>
           </Box>
 
         </Toolbar>
