@@ -12,7 +12,7 @@ import {
 
 export default function Page1(props) {
   const {
-    info, setName, setEmail, setPhone, setWhatsApp, setFaculty, setMajor, setGraduationYear,
+    name, email, phone, error, info, setName, setEmail, setPhone, setWhatsApp, setFaculty, setMajor, setGraduationYear,
   } = props;
 
   const checkPhone = (e, data) => {
@@ -27,37 +27,85 @@ export default function Page1(props) {
       <FirstRow>
         <InputConatiner>
           <AccountCircle sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.name} label="Name" variant="standard" type="text" onBlur={(e) => setName(e.target.value)} required />
+          <TextField
+            defaultValue={info?.name}
+            label="Name"
+            variant="standard"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            required
+            error={error && name?.length <= 0}
+          />
         </InputConatiner>
         <InputConatiner>
           <EmailRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.email} label="Email" variant="standard" type="emial" onBlur={(e) => setEmail(e.target.value)} required />
+          <TextField
+            defaultValue={info?.email}
+            label="Email"
+            variant="standard"
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            error={(error && email?.length <= 0) || (error && !email.includes('@'))}
+          />
         </InputConatiner>
       </FirstRow>
       <Row>
         <InputConatiner>
           <LocalPhoneRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.phone} label="Phone" variant="standard" type="text" onBlur={(e) => checkPhone(e, 'phone')} required />
+          <TextField
+            defaultValue={info?.phone}
+            label="Phone"
+            variant="standard"
+            type="text"
+            onChange={(e) => checkPhone(e, 'phone')}
+            required
+            error={error && phone?.length <= 0}
+          />
         </InputConatiner>
         <InputConatiner>
           <PhoneIphoneRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.whatsApp} label="Whats app Number" variant="standard" type="text" onBlur={(e) => checkPhone(e, 'whats')} />
+          <TextField
+            defaultValue={info?.whatsApp}
+            label="Whats app Number"
+            variant="standard"
+            type="text"
+            onChange={(e) => checkPhone(e, 'whats')}
+          />
         </InputConatiner>
       </Row>
       <Row>
         <InputConatiner>
           <AccountBalanceRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.faculty} label="Faculty" variant="standard" type="text" onBlur={(e) => setFaculty(e.target.value)} />
+          <TextField
+            defaultValue={info?.faculty}
+            label="Faculty"
+            variant="standard"
+            type="text"
+            onChange={(e) => setFaculty(e.target.value)}
+          />
         </InputConatiner>
         <InputConatiner>
           <GradeRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.major} label="Major" variant="standard" type="text" onBlur={(e) => setMajor(e.target.value)} />
+          <TextField
+            defaultValue={info?.major}
+            label="Major"
+            variant="standard"
+            type="text"
+            onChange={(e) => setMajor(e.target.value)}
+          />
         </InputConatiner>
       </Row>
       <Row>
         <InputConatiner>
           <SchoolRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField defaultValue={info?.graduationYear} label="Graduation Year" variant="standard" type="number" onBlur={(e) => setGraduationYear(e.target.value)} />
+          <TextField
+            defaultValue={info?.graduationYear}
+            label="Graduation Year"
+            variant="standard"
+            type="number"
+            onChange={(e) => setGraduationYear(e.target.value)}
+          />
         </InputConatiner>
       </Row>
     </Container>

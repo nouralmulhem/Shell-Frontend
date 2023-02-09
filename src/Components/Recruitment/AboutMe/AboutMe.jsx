@@ -11,13 +11,38 @@ function AboutMe() {
 
   // user data
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [whatsApp, setWhatsApp] = useState('');
-  const [faculty, setFaculty] = useState('');
-  const [major, setMajor] = useState('');
-  const [graduationYear, setGraduationYear] = useState('');
+  const [name, setName] = useState(info?.name);
+  const [email, setEmail] = useState(info?.email);
+  const [phone, setPhone] = useState(info?.phone);
+  const [whatsApp, setWhatsApp] = useState(info?.whatsApp);
+  const [faculty, setFaculty] = useState(info?.faculty);
+  const [major, setMajor] = useState(info?.major);
+  const [graduationYear, setGraduationYear] = useState(info?.graduationYear);
+
+  const [error, setError] = useState(false);
+
+  const handleNext = () => {
+    console.log(name, email, phone);
+    if (name?.length <= 0 || email?.length <= 0 || phone?.length <= 0 || !email.includes('@')) {
+      setError(true);
+    } else {
+      setStep({
+        step: 2,
+        progress: 20,
+      });
+      // Save Submitted Date
+      setInfo((state) => ({
+        ...state,
+        name,
+        email,
+        phone,
+        whatsApp,
+        faculty,
+        major,
+        graduationYear,
+      }));
+    }
+  };
   return (
     <>
       <Box sx={{
@@ -33,52 +58,40 @@ function AboutMe() {
           </Box>
           <Box component="div" sx={{ fontSize: '12px' }}>Tell us more about you</Box>
         </Box>
-        <Img src="../../../1666309625881.jpg" />
+        <Img src="smile.png" />
       </Box>
-      <form>
-        <Page1
-          info={info}
-          setName={setName}
-          setEmail={setEmail}
-          setPhone={setPhone}
-          setWhatsApp={setWhatsApp}
-          setFaculty={setFaculty}
-          setMajor={setMajor}
-          setGraduationYear={setGraduationYear}
-        />
-        <ButtonsContainer>
-          <BackButton
-            onClick={() => {
-              window.location.href = '/';
-            }}
-            type="submit"
-          >
-            Home
-          </BackButton>
-          <NextButton
-            onClick={() => {
-              setStep({
-                step: 2,
-                progress: 20,
-              });
-              // Save Submitted Date
-              setInfo((state) => ({
-                ...state,
-                name,
-                email,
-                phone,
-                whatsApp,
-                faculty,
-                major,
-                graduationYear,
-              }));
-            }}
-            type="submit"
-          >
-            Next
-          </NextButton>
-        </ButtonsContainer>
-      </form>
+      <Page1
+        error={error}
+        info={info}
+        setName={setName}
+        setEmail={setEmail}
+        setPhone={setPhone}
+        setWhatsApp={setWhatsApp}
+        setFaculty={setFaculty}
+        setMajor={setMajor}
+        setGraduationYear={setGraduationYear}
+        name={name}
+        email={email}
+        phone={phone}
+      />
+      <ButtonsContainer>
+        <BackButton
+          onClick={() => {
+            window.location.href = '/';
+          }}
+          type="submit"
+        >
+          Home
+        </BackButton>
+        <NextButton
+          onClick={() => {
+            handleNext();
+          }}
+          type="submit"
+        >
+          Next
+        </NextButton>
+      </ButtonsContainer>
     </>
   );
 }
