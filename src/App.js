@@ -3,7 +3,7 @@ import { CssBaseline } from '@mui/material';
 
 import Home from './Components/HomePage/Home';
 import PostForm from './Components/PostForm/PostForm';
-import ResponsiveAppBar from './Components/Navebar/Navebar';
+import ResponsiveAppBar from './Components/Navebar/HosnyNavbar';
 import Pages from './Pages/Pages';
 import RecruitmentPage from './Pages/RecruitmentPage';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar/AppBar';
-import Box from '@mui/material/Box/Box';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -15,36 +15,41 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.targetvalue);
+    setAnchorElNav(event.currentTarget);
   };
-  const handlecloseNavMenu = () => {
-    setAnchorElNav(false);
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
   };
 
   const handleHome = () => {
-    handlecloseNavMenu();
+    handleCloseNavMenu();
     window.location.pathname = '';
   };
   const handleSponser = () => {
+    handleCloseNavMenu();
     console.log('Sponser');
   };
   const handleGallary = () => {
+    handleCloseNavMenu();
     console.log('Gallary');
   };
   const handleAbout = () => {
+    handleCloseNavMenu();
     console.log('About');
   };
   const handleAddPost = () => {
+    handleCloseNavMenu();
     window.location.pathname = 'AddPost';
   };
   const handleJoinUs = () => {
+    handleCloseNavMenu();
     window.location.pathname = 'Recruitment';
   };
-
   return (
     <AppBar position="static">
-      <Container>
-        <Toolbar disableGutters sx={{ color: 'white' }}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
           <Box component="img" alt="Our logo" src="./logo.svg" sx={{ color: 'white' }} onClick={handleHome} />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -61,7 +66,7 @@ function ResponsiveAppBar() {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'top',
+                vertical: 'bottom',
                 horizontal: 'left',
               }}
               keepMounted
@@ -70,7 +75,7 @@ function ResponsiveAppBar() {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={() => (handlecloseNavMenu)}
+              onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
@@ -99,7 +104,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            // onClick={()=>{ window.location.pathname = 'login';}}
+            href=""
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -109,23 +114,23 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
-              cursor: 'pointer',
             }}
           >
             <PostLink to="/login">Sign in</PostLink>
+
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'space-between' }}>
+
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-              <Button><PostLink to="/">HOME</PostLink></Button>
-              <Button><PostLink to="/">Sponser</PostLink></Button>
-              <Button><PostLink to="/">Gallary</PostLink></Button>
-              <Button><PostLink to="/">About</PostLink></Button>
-              <Button><PostLink to="/AddPost">Add Post</PostLink></Button>
-              <Button><PostLink to="/Recruitment">join us</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/">HOME</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/">Sponser</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/">Gallary</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/">About</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/AddPost">Add Post</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/Recruitment">join us</PostLink></Button>
             </Box>
             <Button><PostLink to="/login">Sign in</PostLink></Button>
           </Box>
-
         </Toolbar>
       </Container>
     </AppBar>
