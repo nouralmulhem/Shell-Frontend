@@ -12,7 +12,7 @@ import {
 
 export default function Page1(props) {
   const {
-    name, email, phone, error, info, setName, setEmail, setPhone, setWhatsApp, setFaculty, setMajor, setGraduationYear,
+    whatsApp, name, email, phone, error, info, setName, setEmail, setPhone, setWhatsApp, setFaculty, setMajor, setGraduationYear,
   } = props;
 
   const checkPhone = (e, data) => {
@@ -20,6 +20,10 @@ export default function Page1(props) {
     const start = num?.substring(0, 3);
     if ((start === '010' || start === '011' || start === '012' || start === '015') && num?.length === 11) {
       if (data === 'phone') { setPhone(num); } else { setWhatsApp(num); }
+    } else if (data === 'phone') {
+      setPhone('');
+    } else {
+      setWhatsApp('');
     }
   };
   return (
@@ -34,7 +38,7 @@ export default function Page1(props) {
             type="text"
             onChange={(e) => setName(e.target.value)}
             required
-            error={error && name?.length <= 0}
+            error={error && (name?.length <= 0 || name === undefined)}
           />
         </InputConatiner>
         <InputConatiner>
@@ -46,7 +50,7 @@ export default function Page1(props) {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            error={(error && email?.length <= 0) || (error && !email.includes('@'))}
+            error={(error && (email?.length <= 0 || email === undefined)) || (error && !email?.includes('@'))}
           />
         </InputConatiner>
       </FirstRow>
@@ -60,7 +64,7 @@ export default function Page1(props) {
             type="text"
             onChange={(e) => checkPhone(e, 'phone')}
             required
-            error={error && phone?.length <= 0}
+            error={error && (phone?.length <= 0 || phone === undefined)}
           />
         </InputConatiner>
         <InputConatiner>
@@ -71,6 +75,8 @@ export default function Page1(props) {
             variant="standard"
             type="text"
             onChange={(e) => checkPhone(e, 'whats')}
+            required
+            error={error && (whatsApp?.length <= 0 || whatsApp === undefined)}
           />
         </InputConatiner>
       </Row>

@@ -5,7 +5,8 @@ import Swal from 'sweetalert2';
 // import axios from '../../services/instance'
 import axios from 'axios';
 import {
-  BoxObj, Description, Title, Upload,
+  BoxObj, Description, Title,
+  // Upload,
 } from './styles';
 
 export default function PostForm() {
@@ -52,17 +53,19 @@ export default function PostForm() {
           required
         />
 
-        <Upload
+        <Title id="img" label="Image link" variant="standard" />
+
+        {/* <Upload
           variant="contained"
           component="label"
         >
           Upload File
           <input
             id="img"
-            type="file"
-            hidden
+            type="text"
+
           />
-        </Upload>
+        </Upload> */}
 
         <Button variant="contained" endIcon={<SendIcon />} type="submit">
           Submit

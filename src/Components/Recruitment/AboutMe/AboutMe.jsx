@@ -22,8 +22,8 @@ function AboutMe() {
   const [error, setError] = useState(false);
 
   const handleNext = () => {
-    console.log(name, email, phone);
-    if (name?.length <= 0 || email?.length <= 0 || phone?.length <= 0 || !email.includes('@')) {
+    console.log(name, email, phone, whatsApp);
+    if ((name?.length <= 0 || email?.length <= 0 || phone?.length <= 0 || whatsApp?.length <= 0 || !email?.includes('@')) || email === undefined || phone === undefined || whatsApp === undefined || name === undefined) {
       setError(true);
     } else {
       setStep({
@@ -73,6 +73,7 @@ function AboutMe() {
         name={name}
         email={email}
         phone={phone}
+        whatsApp={whatsApp}
       />
       <ButtonsContainer>
         <BackButton
