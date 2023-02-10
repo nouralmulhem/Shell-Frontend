@@ -26,7 +26,7 @@ const theme = createTheme({
 });
 
 export default function RecPage2({
-  error, questions, setQuestions,
+  info, error, questions, setQuestions,
 }) {
 //   const [Q1, setQ1] = useState('');
 //   const [Q2, setQ2] = useState('');
@@ -50,6 +50,9 @@ export default function RecPage2({
     setQuestions(myNextList);
   }
 
+  console.log(info?.questions);
+  console.log(info);
+
   return (
     <ThemeProvider theme={theme}>
       <PageBox>
@@ -63,6 +66,7 @@ export default function RecPage2({
       </PageBox>
       <FormBox>
         <TextField
+          defaultValue={info?.q0}
           id="outlined-textarea"
           label="What Do you know about Shell Eco-Marathon?"
           placeholder=""
@@ -83,6 +87,8 @@ export default function RecPage2({
             name="row-radio-buttons-group"
             required
             onChange={(e) => handleAnswer(1, e.target.value)}
+            defaultValue={info?.q1}
+
           >
             <FormControlLabel value="yes" control={<Radio />} label="yes" />
             <FormControlLabel value="no" control={<Radio />} label="no" />
@@ -96,6 +102,8 @@ export default function RecPage2({
           required
           onChange={(e) => handleAnswer(2, e.target.value)}
           error={error && [...questions][2].length <= 0}
+          defaultValue={info?.q2}
+
         />
         <br />
         <TextField
@@ -106,6 +114,8 @@ export default function RecPage2({
           multiline
           onChange={(e) => handleAnswer(3, e.target.value)}
           error={error && [...questions][3].length <= 0}
+          defaultValue={info?.q3}
+
         />
         <br />
         <TextField
@@ -116,6 +126,8 @@ export default function RecPage2({
           multiline
           onChange={(e) => handleAnswer(4, e.target.value)}
           error={error && [...questions][4].length <= 0}
+          defaultValue={info?.q4}
+
         />
         <br />
         <FormControl required error={error && [...questions][5].length <= 0}>
@@ -125,6 +137,8 @@ export default function RecPage2({
             name="row-radio-buttons-group"
             required
             onChange={(e) => handleAnswer(5, e.target.value)}
+            defaultValue={info?.q5}
+
           >
             <FormControlLabel value="yes" control={<Radio />} label="yes" />
             <FormControlLabel value="no" control={<Radio />} label="no" />
@@ -141,6 +155,8 @@ export default function RecPage2({
             multiline
             onChange={(e) => handleAnswer(7, e.target.value)}
             error={error && [...questions][7].length <= 0}
+            defaultValue={info?.q7}
+
           />
           <br />
         </>
@@ -153,6 +169,8 @@ export default function RecPage2({
           type="number"
           onChange={(e) => handleAnswer(6, e.target.value)}
           error={error && [...questions][6].length <= 0}
+          defaultValue={info?.q6}
+
         />
       </FormBox>
 

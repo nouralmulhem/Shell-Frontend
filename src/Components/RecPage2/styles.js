@@ -16,11 +16,14 @@ export const QImage = styled('img')(() => ({
 }));
 
 export const EleBox = styled(Box)(() => ({
-  height: '100%',
+  height: '80%',
   maxWidth: 200,
   display: 'flex',
+  marginLeft: 10,
+  marginRight: 10,
   justifyContent: 'center',
   alignItems: 'center',
+  flexDirection: 'column',
 }));
 
 export const FormText = styled(Typography)(() => ({

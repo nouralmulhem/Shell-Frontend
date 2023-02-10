@@ -39,7 +39,10 @@ export default function RecPage3({
       <PageBox>
         <EleBox>
           <FormText variant="h6">
-            Experience you have
+            Experience
+          </FormText>
+          <FormText variant="h6">
+            you have
           </FormText>
         </EleBox>
         <EleBox><QImage src="led.png" /></EleBox>
@@ -115,6 +118,7 @@ export default function RecPage3({
           label="What is your level in English (0_10)"
           placeholder=""
           disabled
+          required
           sx={{ width: '50%' }}
         //   onChange={(e) => handleAnswer(7, e.target.value)}
         //   error={error && [...questions][7].length <= 0}
