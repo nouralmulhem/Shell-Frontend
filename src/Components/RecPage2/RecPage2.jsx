@@ -8,6 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 // import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   EleBox, FormBox, FormText, PageBox, QImage,
 } from './styles';
@@ -26,7 +27,7 @@ const theme = createTheme({
 });
 
 export default function RecPage2({
-  info, error, questions, setQuestions,
+  error, questions, setQuestions,
 }) {
 //   const [Q1, setQ1] = useState('');
 //   const [Q2, setQ2] = useState('');
@@ -50,8 +51,9 @@ export default function RecPage2({
     setQuestions(myNextList);
   }
 
-  console.log(info?.questions);
-  console.log(info);
+  useEffect(() => {
+    console.log(questions);
+  }, [questions]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -66,7 +68,7 @@ export default function RecPage2({
       </PageBox>
       <FormBox>
         <TextField
-          defaultValue={info?.q0}
+          defaultValue={questions[0]}
           id="outlined-textarea"
           label="What Do you know about Shell Eco-Marathon?"
           placeholder=""
@@ -87,7 +89,7 @@ export default function RecPage2({
             name="row-radio-buttons-group"
             required
             onChange={(e) => handleAnswer(1, e.target.value)}
-            defaultValue={info?.q1}
+            defaultValue={questions[1]}
 
           >
             <FormControlLabel value="yes" control={<Radio />} label="yes" />
@@ -102,7 +104,7 @@ export default function RecPage2({
           required
           onChange={(e) => handleAnswer(2, e.target.value)}
           error={error && [...questions][2].length <= 0}
-          defaultValue={info?.q2}
+          defaultValue={questions[2]}
 
         />
         <br />
@@ -114,7 +116,7 @@ export default function RecPage2({
           multiline
           onChange={(e) => handleAnswer(3, e.target.value)}
           error={error && [...questions][3].length <= 0}
-          defaultValue={info?.q3}
+          defaultValue={questions[3]}
 
         />
         <br />
@@ -126,7 +128,7 @@ export default function RecPage2({
           multiline
           onChange={(e) => handleAnswer(4, e.target.value)}
           error={error && [...questions][4].length <= 0}
-          defaultValue={info?.q4}
+          defaultValue={questions[4]}
 
         />
         <br />
@@ -137,7 +139,7 @@ export default function RecPage2({
             name="row-radio-buttons-group"
             required
             onChange={(e) => handleAnswer(5, e.target.value)}
-            defaultValue={info?.q5}
+            defaultValue={questions[5]}
 
           >
             <FormControlLabel value="yes" control={<Radio />} label="yes" />
@@ -155,7 +157,7 @@ export default function RecPage2({
             multiline
             onChange={(e) => handleAnswer(7, e.target.value)}
             error={error && [...questions][7].length <= 0}
-            defaultValue={info?.q7}
+            defaultValue={questions[7]}
 
           />
           <br />
@@ -169,7 +171,7 @@ export default function RecPage2({
           type="number"
           onChange={(e) => handleAnswer(6, e.target.value)}
           error={error && [...questions][6].length <= 0}
-          defaultValue={info?.q6}
+          defaultValue={questions[6]}
 
         />
       </FormBox>
