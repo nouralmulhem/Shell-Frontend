@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRecruitmentContext } from '../../../contexts/RecruitmentContext';
 import RecPage3 from '../../RecPage2/RecPage3';
+import { Register } from '../server';
 import { BackButton, ButtonsContainer, NextButton } from '../styles';
 
 function AboutUs() {
@@ -14,9 +15,20 @@ function AboutUs() {
     if (questions.slice(0, 3).filter((q) => q.length <= 0).length !== 0 || questions[5].length <= 0) {
       setError(true);
     } else {
-      // Save Submitted Date
-      setInfo((state) => ({
-        ...state,
+      // // Save Submitted Date
+      // setInfo((state) => ({
+      //   ...state,
+      //   q0: questions[0],
+      //   q1: questions[1],
+      //   q2: questions[2],
+      //   q3: questions[3],
+      //   q4: questions[4],
+      //   q5: questions[5],
+      //   q6: questions[6],
+      //   q7: questions[7],
+      // }));
+
+      const newInfo = {
         q0: questions[0],
         q1: questions[1],
         q2: questions[2],
@@ -25,7 +37,10 @@ function AboutUs() {
         q5: questions[5],
         q6: questions[6],
         q7: questions[7],
-      }));
+      };
+
+      console.log({ ...info, ...newInfo });
+      Register({ ...info, ...newInfo });
     }
   };
 

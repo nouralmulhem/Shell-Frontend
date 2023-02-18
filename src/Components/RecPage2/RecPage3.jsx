@@ -19,17 +19,17 @@ const subTeams = ['Web development ',
   'Marketing',
   'Video Editing ',
   'Graphic design',
-  'Puplic Relation & Fund rising ',
+  'Public Relation & Fund rising ',
   'Supply chain ',
   'Power Electronics ',
   'Electrical embedded',
-  'Power Transimission ',
-  'Vechile dynamic ',
+  'Power Transmission ',
+  'Vehicle dynamic ',
   'Engine ',
   'Body & chassis',
   'R&D',
-  'Autonoumous Development ',
-  'Autonoumous Embedded'];
+  'Autonomous Development ',
+  'Autonomous Embedded'];
 
 export default function RecPage3({
   error, questions, setQuestions,
