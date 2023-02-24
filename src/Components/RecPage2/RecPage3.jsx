@@ -1,11 +1,6 @@
 import {
-  Autocomplete, Box, Slider, TextField,
+  Autocomplete, Box, Button, Chip, Paper, Slider, TextField,
 } from '@mui/material';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import { useEffect, useState } from 'react';
 import {
   EleBox, FormBox, FormText, PageBox, QImage,
@@ -40,31 +35,33 @@ export default function RecPage3({
     setQuestions(myNextList);
   }
 
-  const [state, setState] = useState({
-    office: true,
-    solidworks: false,
-    matlab: false,
-  });
-
-  const handleChange = (e) => {
-    const myNextList = [...questions];
-    myNextList[3] = {
-      ...state,
-      [e.target.name]: e.target.checked,
-    };
-    setQuestions(myNextList);
-
-    setState({
-      ...state,
-      [e.target.name]: e.target.checked,
-    });
-  };
+  const [skills, setSkills] = useState([...questions[3]]);
+  const [skillAdd, setSkillAdd] = useState();
 
   useEffect(() => {
     console.log(questions);
   }, [questions]);
 
-  const { office, solidworks, matlab } = state;
+  const handleDelete = (index) => {
+    const array = [...skills];
+    array.splice(index, 1);
+    setSkills(array);
+    handleAnswer(3, array);
+  };
+
+  const handleAdd = () => {
+    if (skillAdd && skillAdd.length > 0) {
+      setSkills([
+        ...skills,
+        skillAdd,
+      ]);
+      handleAnswer(3, [
+        ...skills,
+        skillAdd,
+      ]);
+      console.log(skillAdd);
+    }
+  };
 
   return (
     <>
@@ -85,7 +82,6 @@ export default function RecPage3({
           id="combo-box-demo"
           options={subTeams}
           defaultValue={questions[0]}
-          // getOptionLabel={(option) => option}
           onChange={(e) => handleAnswer(0, e.target.innerText)}
           error={error && [...questions][0].length <= 0}
           renderInput={(params) => (
@@ -123,38 +119,35 @@ export default function RecPage3({
           error={error && [...questions][2].length <= 0}
         />
         <br />
-        <FormControl sx={{ m: 1 }} component="fieldset" variant="standard">
-          <FormLabel component="legend">Software Programs?</FormLabel>
-          <FormGroup>
-            <FormControlLabel
-              control={
-                <Checkbox checked={office} onChange={handleChange} name="office" />
-            }
-              label="Office"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={solidworks} onChange={handleChange} name="solidworks" />
-            }
-              label="Solidworks"
-            />
-            <FormControlLabel
-              control={
-                <Checkbox checked={matlab} onChange={handleChange} name="matlab" />
-            }
-              label="Matlab"
-            />
-          </FormGroup>
-        </FormControl>
-        <br />
-        <TextField
-          label="Others"
-          placeholder=""
-          defaultValue={questions[4]}
-          multiline
-          sx={{ width: '50%' }}
-          onChange={(e) => handleAnswer(4, e.target.value)}
-        />
+        <Box
+          sx={{
+            display: 'flex',
+            '& > :not(style)': {
+              // width: '50%',
+              minHeight: 56,
+            },
+          }}
+        >
+          <TextField
+            id="standard-name"
+            label="Skills"
+            sx={{ width: '50%' }}
+            onChange={(e) => setSkillAdd(e.target.value)}
+            InputProps={{
+              endAdornment: <Button variant="contained" onClick={handleAdd}>Add</Button>,
+            }}
+          />
+          <Paper
+            sx={{
+              bgcolor: 'transparent', p: 1, marginLeft: '5%', width: '45%',
+            }}
+            elevation={2}
+          >
+            {skills.map((skill, index) => (
+              <Chip key={`${index + 0}`} label={skill} variant="outlined" color="primary" onDelete={() => handleDelete(index)} sx={{ bgcolor: '#e3e3e3', m: '2px' }} />
+            ))}
+          </Paper>
+        </Box>
         <br />
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <TextField
@@ -163,10 +156,11 @@ export default function RecPage3({
             disabled
             required
             sx={{ width: '50%' }}
+            error={error && [...questions][4].length <= 0}
           />
           <Slider
             aria-label="Temperature"
-            defaultValue={questions[5]}
+            defaultValue={questions[4]}
             getAriaValueText={valuetext}
             valueLabelDisplay="auto"
             step={10}
@@ -174,7 +168,7 @@ export default function RecPage3({
             min={10}
             max={100}
             sx={{ width: '45%', marginLeft: '5%' }}
-            onChange={(e) => handleAnswer(5, e.target.value)}
+            onChange={(e) => handleAnswer(4, e.target.value)}
           />
 
         </Box>
@@ -182,20 +176,20 @@ export default function RecPage3({
         <TextField
           label="Linkedin Profile Link"
           placeholder=""
-          defaultValue={questions[6]}
+          defaultValue={questions[5]}
           fullWidth
           multiline
-          onChange={(e) => handleAnswer(6, e.target.value)}
+          onChange={(e) => handleAnswer(5, e.target.value)}
         />
         <br />
 
         <TextField
           label="link CV in drive"
           placeholder=""
-          defaultValue={questions[7]}
+          defaultValue={questions[6]}
           fullWidth
           multiline
-          onChange={(e) => handleAnswer(7, e.target.value)}
+          onChange={(e) => handleAnswer(6, e.target.value)}
         />
       </FormBox>
 

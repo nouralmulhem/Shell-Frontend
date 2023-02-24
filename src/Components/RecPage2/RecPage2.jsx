@@ -29,22 +29,6 @@ const theme = createTheme({
 export default function RecPage2({
   error, questions, setQuestions,
 }) {
-//   const [Q1, setQ1] = useState('');
-//   const [Q2, setQ2] = useState('');
-
-  //   useEffect(() => {
-  //     console.log(Q1);
-  //     console.log(Q2);
-  //   }, [Q1, Q2]);
-
-  //   const handleNext = () => {
-
-  //   };
-
-  //   useEffect(() => {
-  //     handleNext();
-  //   }, [next]);
-
   function handleAnswer(num, answer) {
     const myNextList = [...questions];
     myNextList[num] = answer;
