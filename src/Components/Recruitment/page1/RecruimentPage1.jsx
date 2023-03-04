@@ -7,6 +7,9 @@ import GradeRoundedIcon from '@mui/icons-material/GradeRounded';
 import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded';
 import SchoolRoundedIcon from '@mui/icons-material/SchoolRounded';
 import {
+  FormControl, InputLabel, MenuItem, Select,
+} from '@mui/material';
+import {
   Container, FirstRow, InputConatiner, Row,
 } from './style';
 
@@ -25,6 +28,13 @@ export default function Page1(props) {
     } else {
       setWhatsApp('');
     }
+  };
+
+  const handleChange = (event) => {
+    setFaculty(event.target.value);
+  };
+  const handleChangeGp = (event) => {
+    setGraduationYear(event.target.value);
   };
   return (
     <Container>
@@ -81,7 +91,7 @@ export default function Page1(props) {
         </InputConatiner>
       </Row>
       <Row>
-        <InputConatiner>
+        {/* <InputConatiner>
           <AccountBalanceRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <TextField
             defaultValue={info?.faculty}
@@ -90,6 +100,32 @@ export default function Page1(props) {
             type="text"
             onChange={(e) => setFaculty(e.target.value)}
           />
+        </InputConatiner> */}
+        <InputConatiner>
+          <AccountBalanceRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
+          <FormControl variant="standard" sx={{ minWidth: 200 }}>
+            <InputLabel id="demo-simple-select-standard-label">Faculty</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="demo-simple-select-standard"
+              defaultValue={info?.faculty}
+              onChange={handleChange}
+              label="Faculty"
+            >
+              <MenuItem value="cairoUniversity">Cairo University</MenuItem>
+              <MenuItem value="ainShamsUniversity">Ain Shams University</MenuItem>
+              <MenuItem value="mansouraUniversity">Mansoura University</MenuItem>
+              <MenuItem value="alexandriaUniversity">Alexandria University</MenuItem>
+              <MenuItem value="helwanUniversity">Helwan University</MenuItem>
+              <MenuItem value="theBritishUniversityInEgypt">The British University in Egypt</MenuItem>
+              <MenuItem value="modernScienceAndArtsUniversity">Modern Science and Arts University</MenuItem>
+              <MenuItem value="theAmericanUniversityInCairo">The American University in Cairo</MenuItem>
+              <MenuItem value="sixthOfOctoberUniversity">Sixth of October University</MenuItem>
+              <MenuItem value="germanUniversity">German University</MenuItem>
+              <MenuItem value="misrInternationalUniversity">Misr International University</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+            </Select>
+          </FormControl>
         </InputConatiner>
         <InputConatiner>
           <GradeRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
@@ -105,13 +141,22 @@ export default function Page1(props) {
       <Row>
         <InputConatiner>
           <SchoolRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField
-            defaultValue={info?.graduationYear}
-            label="Graduation Year"
-            variant="standard"
-            type="number"
-            onChange={(e) => setGraduationYear(e.target.value)}
-          />
+          <FormControl variant="standard" sx={{ minWidth: 200 }}>
+            <InputLabel id="demo-simple-select-standard-label1">Graduation Year</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label1"
+              id="demo-simple-select-standard1"
+              defaultValue={info?.graduationYear}
+              onChange={handleChangeGp}
+              label="GraduationYear"
+            >
+              <MenuItem value="2023">2023</MenuItem>
+              <MenuItem value="2024">2024</MenuItem>
+              <MenuItem value="2025">2025</MenuItem>
+              <MenuItem value="2026">2026</MenuItem>
+              <MenuItem value="2027">2027</MenuItem>
+            </Select>
+          </FormControl>
         </InputConatiner>
       </Row>
     </Container>
