@@ -153,10 +153,10 @@ export default function RecPage2({
           fullWidth
           required
           type="number"
+          InputProps={{ inputProps: { min: 1, max: 40 } }}
           onChange={(e) => handleAnswer(6, e.target.value)}
           error={error && [...questions][6].length <= 0}
           defaultValue={questions[6]}
-
         />
       </FormBox>
 

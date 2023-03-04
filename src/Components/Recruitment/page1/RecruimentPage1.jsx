@@ -33,6 +33,9 @@ export default function Page1(props) {
   const handleChange = (event) => {
     setFaculty(event.target.value);
   };
+  const handleChangeMg = (event) => {
+    setMajor(event.target.value);
+  };
   const handleChangeGp = (event) => {
     setGraduationYear(event.target.value);
   };
@@ -112,30 +115,51 @@ export default function Page1(props) {
               onChange={handleChange}
               label="Faculty"
             >
-              <MenuItem value="cairoUniversity">Cairo University</MenuItem>
-              <MenuItem value="ainShamsUniversity">Ain Shams University</MenuItem>
-              <MenuItem value="mansouraUniversity">Mansoura University</MenuItem>
-              <MenuItem value="alexandriaUniversity">Alexandria University</MenuItem>
-              <MenuItem value="helwanUniversity">Helwan University</MenuItem>
-              <MenuItem value="theBritishUniversityInEgypt">The British University in Egypt</MenuItem>
-              <MenuItem value="modernScienceAndArtsUniversity">Modern Science and Arts University</MenuItem>
-              <MenuItem value="theAmericanUniversityInCairo">The American University in Cairo</MenuItem>
-              <MenuItem value="sixthOfOctoberUniversity">Sixth of October University</MenuItem>
-              <MenuItem value="germanUniversity">German University</MenuItem>
-              <MenuItem value="misrInternationalUniversity">Misr International University</MenuItem>
-              <MenuItem value="other">Other</MenuItem>
+              <MenuItem value="Cairo University">Cairo University</MenuItem>
+              <MenuItem value="Ain Shams University">Ain Shams University</MenuItem>
+              <MenuItem value="Mansoura University">Mansoura University</MenuItem>
+              <MenuItem value="Alexandria University">Alexandria University</MenuItem>
+              <MenuItem value="Helwan University">Helwan University</MenuItem>
+              <MenuItem value="The British University in Egypt (BUE)">The British University in Egypt (BUE)</MenuItem>
+              <MenuItem value="Modern Sciences and Arts University (MSA)">Modern Sciences and Arts University (MSA)</MenuItem>
+              <MenuItem value="Misr University for Science and Technology (MUST)">Misr University for Science and Technology (MUST)</MenuItem>
+              <MenuItem value="The American University in Cairo (AUC)">The American University in Cairo (AUC)</MenuItem>
+              <MenuItem value="Sixth of October University">Sixth of October University</MenuItem>
+              <MenuItem value="German University in Cairo (GUC)">German University in Cairo (GUC)</MenuItem>
+              <MenuItem value="Misr International University (MIU)">Misr International University (MIU)</MenuItem>
+              <MenuItem value="Other">Other</MenuItem>
             </Select>
           </FormControl>
         </InputConatiner>
         <InputConatiner>
           <GradeRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
-          <TextField
+          {/* <TextField
             defaultValue={info?.major}
             label="Major"
             variant="standard"
             type="text"
             onChange={(e) => setMajor(e.target.value)}
-          />
+          /> */}
+          <FormControl variant="standard" sx={{ minWidth: 200 }}>
+            <InputLabel id="demo-simple-select-standard-label11">Major</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label11"
+              id="demo-simple-select-standard11"
+              defaultValue={info?.major}
+              onChange={handleChangeMg}
+              label="Major"
+            >
+              <MenuItem value="Computer">Computer</MenuItem>
+              <MenuItem value="Biomedical">Biomedical</MenuItem>
+              <MenuItem value="Electrical">Electrical</MenuItem>
+              <MenuItem value="Electronics and Communication">Electronics and Communication</MenuItem>
+              <MenuItem value="Mechanical">Mechanical</MenuItem>
+              <MenuItem value="Civil">Civil</MenuItem>
+              <MenuItem value="Archeticture">Archeticture</MenuItem>
+              <MenuItem value="Chemistry">Chemistry</MenuItem>
+              <MenuItem value="Other">Other</MenuItem>
+            </Select>
+          </FormControl>
         </InputConatiner>
       </Row>
       <Row>
