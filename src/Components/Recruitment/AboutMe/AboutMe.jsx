@@ -23,7 +23,7 @@ function AboutMe() {
 
   const handleNext = () => {
     console.log(name, email, phone, whatsApp);
-    if ((name?.length <= 0 || email?.length <= 0 || phone?.length <= 0 || whatsApp?.length <= 0 || !email?.includes('@')) || email === undefined || phone === undefined || whatsApp === undefined || name === undefined) {
+    if ((name?.length <= 0 || email?.length <= 0 || phone?.length <= 0 || whatsApp?.length <= 0 || !email?.includes('@')) || faculty?.length <= 0 || major?.length <= 0 || graduationYear?.length <= 0 || email === undefined || phone === undefined || whatsApp === undefined || name === undefined || graduationYear === undefined || major === undefined || faculty === undefined) {
       setError(true);
     } else {
       setStep({
@@ -74,6 +74,9 @@ function AboutMe() {
         email={email}
         phone={phone}
         whatsApp={whatsApp}
+        graduationYear={graduationYear}
+        major={major}
+        faculty={faculty}
       />
       <ButtonsContainer>
         <BackButton

@@ -16,6 +16,7 @@ import {
 export default function Page1(props) {
   const {
     whatsApp, name, email, phone, error, info, setName, setEmail, setPhone, setWhatsApp, setFaculty, setMajor, setGraduationYear,
+    graduationYear, major, faculty,
   } = props;
 
   const checkPhone = (e, data) => {
@@ -114,6 +115,8 @@ export default function Page1(props) {
               defaultValue={info?.faculty}
               onChange={handleChange}
               label="Faculty"
+              required
+              error={error && (faculty?.length <= 0 || faculty === undefined)}
             >
               <MenuItem value="Cairo University">Cairo University</MenuItem>
               <MenuItem value="Ain Shams University">Ain Shams University</MenuItem>
@@ -148,6 +151,8 @@ export default function Page1(props) {
               defaultValue={info?.major}
               onChange={handleChangeMg}
               label="Major"
+              required
+              error={error && (major?.length <= 0 || major === undefined)}
             >
               <MenuItem value="Computer">Computer</MenuItem>
               <MenuItem value="Biomedical">Biomedical</MenuItem>
@@ -173,6 +178,8 @@ export default function Page1(props) {
               defaultValue={info?.graduationYear}
               onChange={handleChangeGp}
               label="GraduationYear"
+              required
+              error={error && (graduationYear?.length <= 0 || graduationYear === undefined)}
             >
               <MenuItem value="2023">2023</MenuItem>
               <MenuItem value="2024">2024</MenuItem>
