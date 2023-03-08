@@ -10,21 +10,22 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-const subTeams = ['Web development ',
-  'Marketing',
-  'Video Editing ',
-  'Graphic design',
-  'Public Relation & Fund rising ',
-  'Supply chain ',
-  'Power Electronics ',
-  'Electrical embedded',
-  'Power Transmission ',
-  'Vehicle dynamic ',
-  'Engine ',
-  'Body & chassis',
+const subTeams = ['Electrical',
+  'Electrical Embedded',
+  'Autonomous Development',
+  'Autonomous Embedded',
+  'Power Transmission',
+  'Power Electronics',
+  'Body & Chassis',
+  'Engine',
+  'Vehicle Dynamic',
+  'Supply Chain',
   'R&D',
-  'Autonomous Development ',
-  'Autonomous Embedded'];
+  'Web Development',
+  'Video Editing',
+  'Graphic Design',
+  'Marketing',
+  'Public Relation & Fundraising'];
 
 export default function RecPage3({
   error, questions, setQuestions,
@@ -85,7 +86,6 @@ export default function RecPage3({
           options={subTeams}
           defaultValue={questions[0]}
           onChange={(e) => handleAnswer(0, e.target.innerText)}
-          error={error && [...questions][0].length <= 0}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -93,6 +93,7 @@ export default function RecPage3({
               fullWidth
               required
               autoFocus
+              error={error && [...questions][0].length <= 0}
               defaultValue={questions[0]}
 
             />

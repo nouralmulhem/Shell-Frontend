@@ -26,21 +26,22 @@ const theme = createTheme({
   },
 });
 
-const subTeams = ['Web development ',
-  'Marketing',
-  'Video Editing ',
-  'Graphic design',
-  'Public Relation & Fund rising ',
-  'Supply chain ',
-  'Power Electronics ',
-  'Electrical embedded',
-  'Power Transmission ',
-  'Vehicle dynamic ',
-  'Engine ',
-  'Body & chassis',
+const subTeams = ['Electrical',
+  'Electrical Embedded',
+  'Autonomous Development',
+  'Autonomous Embedded',
+  'Power Transmission',
+  'Power Electronics',
+  'Body & Chassis',
+  'Engine',
+  'Vehicle Dynamic',
+  'Supply Chain',
   'R&D',
-  'Autonomous Development ',
-  'Autonomous Embedded'];
+  'Web Development',
+  'Video Editing',
+  'Graphic Design',
+  'Marketing',
+  'Public Relation & Fundraising'];
 
 export default function RecPage2({
   error, questions, setQuestions,
