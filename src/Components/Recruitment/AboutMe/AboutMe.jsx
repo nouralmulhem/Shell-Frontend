@@ -28,7 +28,7 @@ function AboutMe() {
     } else {
       setStep({
         step: 2,
-        progress: 20,
+        progress: 40,
       });
       // Save Submitted Date
       setInfo((state) => ({

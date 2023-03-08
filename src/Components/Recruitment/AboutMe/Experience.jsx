@@ -7,7 +7,7 @@ function Experience() {
   // eslint-disable-next-line no-unused-vars
   const { setStep, info, setInfo } = useRecruitmentContext();
   const [error, setError] = useState(false);
-  const [questions, setQuestions] = useState([info?.q0 || '', info?.q1, info?.q2 || '', info?.q3 || [], info?.q4 || '', info?.q5 || '', info?.q6 || '']);
+  const [questions, setQuestions] = useState([info?.q0 || '', info?.q1 || '', info?.q2 || '', info?.q3 || [], info?.q4 || '', info?.q5 || '', info?.q6 || '']);
 
   const handleNext = () => {
     // console.log(questions.slice(0, 7).filter((q) => q.length <= 0).length);
@@ -16,7 +16,7 @@ function Experience() {
     } else {
       setStep({
         step: 3,
-        progress: 40,
+        progress: 70,
       });
 
       // Save Submitted Date

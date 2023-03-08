@@ -17,7 +17,8 @@ function Recruitment() {
       {step.step === 1 ? <AboutMe />
         : step.step === 2 ? <Experience />
           : <AboutUs />}
-      <BorderLinearProgress variant="determinate" value={step.progress} />
+      <BorderLinearProgress variant="determinate" value={step.progress} sx={{ height: '5px' }} />
+      <br />
     </>
   );
 }

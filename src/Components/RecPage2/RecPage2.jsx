@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { Autocomplete, TextField } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import { purple } from '@mui/material/colors';
 // import Button from '@mui/material/Button';
@@ -25,6 +25,22 @@ const theme = createTheme({
     },
   },
 });
+
+const subTeams = ['Web development ',
+  'Marketing',
+  'Video Editing ',
+  'Graphic design',
+  'Public Relation & Fund rising ',
+  'Supply chain ',
+  'Power Electronics ',
+  'Electrical embedded',
+  'Power Transmission ',
+  'Vehicle dynamic ',
+  'Engine ',
+  'Body & chassis',
+  'R&D',
+  'Autonomous Development ',
+  'Autonomous Embedded'];
 
 export default function RecPage2({
   error, questions, setQuestions,
@@ -76,22 +92,34 @@ export default function RecPage2({
             defaultValue={questions[1]}
 
           >
-            <FormControlLabel value="yes" control={<Radio />} label="yes" />
-            <FormControlLabel value="no" control={<Radio />} label="no" />
+            <FormControlLabel value="Yes" control={<Radio />} label="yes" />
+            <FormControlLabel value="No" control={<Radio />} label="no" />
           </RadioGroup>
         </FormControl>
         <br />
-        <TextField
-          label="mention which sub-team you applied for"
-          placeholder=""
-          fullWidth
-          required
-          onChange={(e) => handleAnswer(2, e.target.value)}
-          error={error && [...questions][2].length <= 0}
-          defaultValue={questions[2]}
-
-        />
-        <br />
+        {[...questions][1] === 'Yes' && (
+        <>
+          <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={subTeams}
+            defaultValue={questions[2]}
+            onChange={(e) => handleAnswer(2, e.target.innerText)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Mention which sub-team you applied for"
+                fullWidth
+                required
+                autoFocus
+                error={error && (![...questions][2] || [...questions][2].length <= 0)}
+                defaultValue={questions[2]}
+              />
+            )}
+          />
+          <br />
+        </>
+        )}
         <TextField
           label="What do you expect to gain from joining our team?"
           placeholder=""
@@ -126,15 +154,15 @@ export default function RecPage2({
             defaultValue={questions[5]}
 
           >
-            <FormControlLabel value="yes" control={<Radio />} label="yes" />
-            <FormControlLabel value="no" control={<Radio />} label="no" />
+            <FormControlLabel value="Yes" control={<Radio />} label="yes" />
+            <FormControlLabel value="No" control={<Radio />} label="no" />
           </RadioGroup>
         </FormControl>
         <br />
-        {[...questions][5] === 'yes' && (
+        {[...questions][5] === 'Yes' && (
         <>
           <TextField
-            label="mention them and your responsibilities"
+            label="Mention them and your responsibilities"
             placeholder=""
             fullWidth
             required

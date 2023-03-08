@@ -63,6 +63,8 @@ export default function RecPage3({
     }
   };
 
+  console.log(error && [...questions][0].length <= 0);
+
   return (
     <>
       <PageBox>
@@ -163,10 +165,10 @@ export default function RecPage3({
             defaultValue={questions[4]}
             getAriaValueText={valuetext}
             valueLabelDisplay="auto"
-            step={10}
+            step={1}
             marks
-            min={10}
-            max={100}
+            min={0}
+            max={10}
             sx={{ width: '45%', marginLeft: '5%' }}
             onChange={(e) => handleAnswer(4, e.target.value)}
           />

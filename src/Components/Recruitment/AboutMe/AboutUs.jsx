@@ -11,8 +11,12 @@ function AboutUs() {
   const [questions, setQuestions] = useState([info?.q7 || '', info?.q8 || '', info?.q9 || '', info?.q10 || '', info?.q11 || '', info?.q12 || '', info?.q13 || '', info?.q14 || '']);
 
   const handleSubmit = () => {
-    if (questions.slice(0, 7).filter((q) => q.length <= 0).length !== 0) {
+    if (questions.slice(0, 7).filter((q) => (q && q.length <= 0)).length !== 0
+      || ([...questions][5] === 'Yes' && [...questions][7].length <= 0)
+      || ([...questions][1] === 'Yes' && (![...questions][2] || [...questions][2].length <= 0))
+    ) {
       setError(true);
+      console.log('error');
     } else {
       const newInfo = {
         q7: questions[0],
@@ -38,7 +42,7 @@ function AboutUs() {
           onClick={() => {
             setStep({
               step: 2,
-              progress: 50,
+              progress: 40,
             });
 
             // Save Submitted Date VIP
