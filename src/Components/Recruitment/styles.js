@@ -25,7 +25,7 @@ export const BackButton = styled(Button)(() => ({
 
 export const BorderLinearProgress = styled(LinearProgress)(() => ({
   width: '90%',
-  height: 5,
+  height: 7,
   margin: 'auto',
   borderRadius: 5,
   [`&.${linearProgressClasses.colorPrimary}`]: {

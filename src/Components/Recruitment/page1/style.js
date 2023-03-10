@@ -6,12 +6,14 @@ export const Row = styled(Box)(() => ({
   justifyContent: 'space-evenly',
   minWidth: 'fit-content',
   marginTop: 15,
+  marginBottom: 15,
 }));
 export const FirstRow = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'space-evenly',
   minWidth: 'fit-content',
   marginTop: 15,
+  marginBottom: 15,
 }));
 
 export const Container = styled(Box)(() => ({
