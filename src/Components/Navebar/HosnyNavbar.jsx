@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import PostLink from './Navbar';
+import { PostLink, PostLink2 } from './Navbar';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -81,22 +81,22 @@ function ResponsiveAppBar() {
               }}
             >
               <MenuItem key="Home" onClick={handleHome}>
-                <Typography textAlign="center">Home</Typography>
+                <PostLink2 to="/">HOME</PostLink2>
               </MenuItem>
               <MenuItem key="Sponser" onClick={handleSponser}>
-                <Typography textAlign="center">Sponser</Typography>
+                <PostLink2 to="/">Sponser</PostLink2>
               </MenuItem>
               <MenuItem key="Gallary" onClick={handleGallary}>
-                <Typography textAlign="center">Gallary</Typography>
+                <PostLink2 to="/">Gallary</PostLink2>
               </MenuItem>
               <MenuItem key="About" onClick={handleAbout}>
-                <Typography textAlign="center">About</Typography>
+                <PostLink2 to="/">About</PostLink2>
               </MenuItem>
               <MenuItem key="AddPost" onClick={handleAddPost}>
-                <Typography textAlign="center">Add Post</Typography>
+                <PostLink2 to="/AddPost">Add Post</PostLink2>
               </MenuItem>
               <MenuItem key="AddPost" onClick={handleJoinUs}>
-                <Typography textAlign="center">Join Us</Typography>
+                <PostLink2 to="/Recruitment">join us</PostLink2>
               </MenuItem>
             </Menu>
           </Box>

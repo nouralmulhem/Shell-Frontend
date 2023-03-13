@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
-const PostLink = styled(Link)({
+export const PostLink = styled(Link)({
   textDecoration: 'none',
   color: 'white',
   '&: hover': {
@@ -13,5 +13,16 @@ const PostLink = styled(Link)({
     color: 'white',
   },
 });
-
-export default PostLink;
+export const PostLink2 = styled(Link)({
+  textAlign: 'center',
+  textDecoration: 'none',
+  color: 'black',
+  '&: hover': {
+    textDecoration: 'none',
+    color: 'black',
+  },
+  '&: visited': {
+    textDecoration: 'none',
+    color: 'black',
+  },
+});
