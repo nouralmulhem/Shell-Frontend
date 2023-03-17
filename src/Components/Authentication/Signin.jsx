@@ -14,6 +14,9 @@ import SocialAccounts from './SocialAccounts';
 // Components
 import SnackBar from '../SnackBar';
 
+// Server
+import { isAdmin } from './server';
+
 function Signin({ btn, condition }) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -33,7 +36,9 @@ function Signin({ btn, condition }) {
       .then((response) => {
         console.log(response);
         if (response.status === 200 || response.status === 201) {
-          localStorage.setItem('shellToken', JSON.stringify(response.data));
+          const localStorageItem = response.data;
+          localStorageItem.loggedIn = true;
+          isAdmin(localStorageItem.access, localStorageItem);
           window.location.href = './';
         }
       })
@@ -50,43 +55,45 @@ function Signin({ btn, condition }) {
       });
   };
   return (
-    <SignConatiner condition={condition} onSubmit={signIn}>
-      {/* Sign in */}
-      <TypographyH3 variant="h3" sx={{ color: 'black' }}>
-        Sign in
-      </TypographyH3>
-      <SocialAccounts />
-      <Typography variant="subtitle">or use your account</Typography>
-      <TextField
-        label="Username"
-        type="text"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%' }}
-        onChange={(e) => {
-          setUserName(e.target.value.trim());
-        }}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%', marginBottom: 2 }}
-        onChange={(e) => {
-          setPassword(e.target.value.trim());
-        }}
-      />
-      <Link href="/" variant="body2">
-        Forgot your password?
-      </Link>
-      <ButtonSign variant="outlined" type="submit">Sign in</ButtonSign>
-      {btn}
+    <>
+      <SignConatiner condition={condition} onSubmit={signIn}>
+        {/* Sign in */}
+        <TypographyH3 variant="h3" sx={{ color: 'black' }}>
+          Sign in
+        </TypographyH3>
+        <SocialAccounts />
+        <Typography variant="subtitle">or use your account</Typography>
+        <TextField
+          label="Username"
+          type="text"
+          required
+          variant="standard"
+          size="small"
+          sx={{ width: '80%' }}
+          onChange={(e) => {
+            setUserName(e.target.value.trim());
+          }}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          required
+          variant="standard"
+          size="small"
+          sx={{ width: '80%', marginBottom: 2 }}
+          onChange={(e) => {
+            setPassword(e.target.value.trim());
+          }}
+        />
+        <Link href="/" variant="body2">
+          Forgot your password?
+        </Link>
+        <ButtonSign variant="outlined" type="submit">Sign in</ButtonSign>
+        {btn}
 
+      </SignConatiner>
       <SnackBar open={openSnackBar} setOpen={setOpenSnackBar} message={snackBar.message} />
-    </SignConatiner>
+    </>
   );
 }
 

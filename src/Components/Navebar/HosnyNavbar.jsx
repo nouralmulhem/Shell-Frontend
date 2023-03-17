@@ -11,6 +11,9 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { PostLink, PostLink2 } from './Navbar';
 
+// Utils
+import { isAdmin, isLoggedIn, Logout } from '../../utils';
+
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
@@ -128,8 +131,17 @@ function ResponsiveAppBar() {
               <Button onClick={handleCloseNavMenu}><PostLink to="/">About</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/AddPost">Add Post</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/Recruitment">join us</PostLink></Button>
+
             </Box>
-            <Button><PostLink to="/login">Sign in</PostLink></Button>
+            {isAdmin() ? <Button><PostLink to="/AddAdmin">Add Admin</PostLink></Button> : null}
+            <Button onClick={() => {
+              if (isLoggedIn) { Logout(); }
+              window.location.href = './login';
+            }}
+            >
+              <PostLink to="">{isLoggedIn() ? 'Log out' : 'Sign in'}</PostLink>
+            </Button>
+
           </Box>
         </Toolbar>
       </Container>

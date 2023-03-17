@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CssBaseline } from '@mui/material';
 
+// Components
 import Home from './Components/HomePage/Home';
 import PostForm from './Components/PostForm/PostForm';
 import ResponsiveAppBar from './Components/Navebar/HosnyNavbar';
 import Pages from './Pages/Pages';
 import RecruitmentPage from './Pages/RecruitmentPage';
+import AddAdmin from './Components/Authentication/AddAdmin/AddAdmin';
 
 // Styles
 import './App.css';
@@ -21,6 +23,7 @@ function App() {
             <Route exact path="/login" element={<Pages />} />
             <Route exact path="/AddPost" element={<PostForm />} />
             <Route exact path="/Recruitment" element={<RecruitmentPage />} />
+            <Route exact path="/AddAdmin" element={<AddAdmin />} />
 
           </Routes>
         </Router>

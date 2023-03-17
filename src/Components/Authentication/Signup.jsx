@@ -10,6 +10,7 @@ import { NameTextField } from '../../styles/Signup';
 // Components
 import SnackBar from '../SnackBar';
 import SocialAccounts from './SocialAccounts';
+import { isAdmin } from './server';
 
 function Signup({ btn2, condition }) {
   const [userName, setUserName] = useState('');
@@ -36,7 +37,10 @@ function Signup({ btn2, condition }) {
       .then((response) => {
         console.log(response.data);
         if (response.status === 200 || response.status === 201) {
-          localStorage.setItem('shellToken', JSON.stringify(response.data));
+          const localStorageItem = response.data;
+          localStorageItem.admin = isAdmin(localStorageItem.access);
+          localStorageItem.loggedIn = true;
+          localStorage.setItem('shell', JSON.stringify(response.data));
           window.location.href = './';
         }
       })
@@ -58,89 +62,91 @@ function Signup({ btn2, condition }) {
   };
 
   return (
-    <SignConatiner condition={condition} onSubmit={signUp}>
-      <TypographyH3 variant="h4" sx={{ color: 'black' }}>
-        Create Account
-      </TypographyH3>
-      <SocialAccounts />
-      <Typography variant="subtitle">
-        or use your email for regrstration
-      </Typography>
-      <NameTextField>
+    <>
+      <SignConatiner condition={condition} onSubmit={signUp}>
+        <TypographyH3 variant="h4" sx={{ color: 'black' }}>
+          Create Account
+        </TypographyH3>
+        <SocialAccounts />
+        <Typography variant="subtitle">
+          or use your email for regrstration
+        </Typography>
+        <NameTextField>
+          <TextField
+            label="First Name"
+            type="text"
+            required
+            variant="standard"
+            size="small"
+            sx={{ width: '40%' }}
+            onChange={(e) => {
+              setFirstName(e.target.value.trim());
+            }}
+          />
+          <TextField
+            label="Last Name"
+            type="text"
+            required
+            variant="standard"
+            size="small"
+            sx={{ width: '40%' }}
+            onChange={(e) => {
+              setLastName(e.target.value.trim());
+            }}
+          />
+
+        </NameTextField>
+
         <TextField
-          label="First Name"
+          label="Username"
           type="text"
           required
           variant="standard"
           size="small"
-          sx={{ width: '40%' }}
+          sx={{ width: '80%' }}
           onChange={(e) => {
-            setFirstName(e.target.value.trim());
+            setUserName(e.target.value.trim());
           }}
         />
         <TextField
-          label="Last Name"
-          type="text"
+          label="Email"
+          type="email"
           required
           variant="standard"
           size="small"
-          sx={{ width: '40%' }}
+          sx={{ width: '80%' }}
           onChange={(e) => {
-            setLastName(e.target.value.trim());
+            setEmail(e.target.value.trim());
           }}
         />
+        <TextField
+          label="Password"
+          type="password"
+          required
+          variant="standard"
+          size="small"
+          sx={{ width: '80%' }}
+          onChange={(e) => {
+            setPassword(e.target.value.trim());
+          }}
+        />
+        <TextField
+          label="Repeat Password"
+          type="password"
+          required
+          variant="standard"
+          size="small"
+          sx={{ width: '80%', marginBottom: 2 }}
+          onChange={(e) => {
+            setPassword2(e.target.value.trim());
+          }}
+        />
+        <ButtonSign variant="outlined" type="submit">Sign up</ButtonSign>
+        {btn2}
 
-      </NameTextField>
-
-      <TextField
-        label="Username"
-        type="text"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%' }}
-        onChange={(e) => {
-          setUserName(e.target.value.trim());
-        }}
-      />
-      <TextField
-        label="Email"
-        type="email"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%' }}
-        onChange={(e) => {
-          setEmail(e.target.value.trim());
-        }}
-      />
-      <TextField
-        label="Password"
-        type="password"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%' }}
-        onChange={(e) => {
-          setPassword(e.target.value.trim());
-        }}
-      />
-      <TextField
-        label="Repeat Password"
-        type="password"
-        required
-        variant="standard"
-        size="small"
-        sx={{ width: '80%', marginBottom: 2 }}
-        onChange={(e) => {
-          setPassword2(e.target.value.trim());
-        }}
-      />
-      <ButtonSign variant="outlined" type="submit">Sign up</ButtonSign>
-      {btn2}
-
+      </SignConatiner>
       <SnackBar open={openSnackBar} setOpen={setOpenSnackBar} message={snackBar.message} />
-    </SignConatiner>
+    </>
   );
 }
 
