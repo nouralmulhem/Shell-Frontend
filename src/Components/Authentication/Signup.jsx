@@ -4,6 +4,9 @@ import axios from 'axios';
 import { useState } from 'react';
 import { ButtonSign, SignConatiner } from '../../styles/Signin';
 import { TypographyH3 } from '../../styles/SignupOverlay';
+
+// Components
+import SnackBar from '../SnackBar';
 import SocialAccounts from './SocialAccounts';
 
 function Signup({ btn2, condition }) {
@@ -12,6 +15,9 @@ function Signup({ btn2, condition }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
+
+  const [openSnackBar, setOpenSnackBar] = useState(false);
+  const [snackBar, setSnackBar] = useState({ message: '' });
 
   const signUp = (e) => {
     e.preventDefault();
@@ -27,16 +33,23 @@ function Signup({ btn2, condition }) {
       .then((response) => {
         console.log(response.data);
         if (response.status === 200 || response.status === 201) {
-          alert('you registered successfully');
-          window.location.href = './login';
+          localStorage.setItem('shellToken', JSON.stringify(response.data));
+          window.location.href = './';
         }
       })
       .catch((error) => {
         console.log(error);
         if (error?.response?.data?.email || error?.response?.data?.username) {
-          alert(`${error?.response?.data?.email}\n${error?.response?.data?.username}`);
+          // Unauthorized
+          setOpenSnackBar(true);
+          setSnackBar({
+            message: `${error?.response?.data?.email}\n${error?.response?.data?.username}`,
+          });
         } else if (error?.response?.data?.password !== undefined) {
-          alert(error?.response?.data?.password);
+          setOpenSnackBar(true);
+          setSnackBar({
+            message: error?.response?.data?.password,
+          });
         }
       });
   };
@@ -107,6 +120,8 @@ function Signup({ btn2, condition }) {
       />
       <ButtonSign variant="outlined" type="submit">Sign up</ButtonSign>
       {btn2}
+
+      <SnackBar open={openSnackBar} setOpen={setOpenSnackBar} message={snackBar.message} />
     </SignConatiner>
   );
 }
