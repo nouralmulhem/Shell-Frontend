@@ -31,7 +31,7 @@ export default function ListSponsers() {
       <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 5 }}>
         { info?.map((entity) => (
           <Grid item xs={matches ? 12 : 4} key={entity.id}>
-            <Item sx={{ padding: '40px 20px', minHeight: '400px' }}>
+            <Item sx={{ padding: '40px 20px', minHeight: '470px' }}>
               <Box sx={{
                 width: '100%', height: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 4,
               }}
