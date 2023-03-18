@@ -44,7 +44,7 @@ export const InputConatiner = styled(Box)(() => ({
 export const SubmitConatiner = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
-  m: 4,
-  margin: ' 0px 30px',
+  m: 10,
+  margin: ' 20px 30px 0px',
   paddingTop: '12px',
 }));

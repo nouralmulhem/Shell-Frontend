@@ -66,7 +66,7 @@ export default function BeSponser() {
     }
   };
   return (
-    <div className="FormHeader">
+    <div className="FormSponser">
       <BoxObj onSubmit={handleClick}>
         <Box sx={{ width: '50%', marginBottom: 2 }}>
           <Title>Become our Sponsors</Title>

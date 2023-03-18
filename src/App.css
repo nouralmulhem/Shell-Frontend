@@ -20,6 +20,15 @@ Body {
   align-items: center;
   background-color: #f6f5f7;
 }
+.FormSponser {
+
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f5f7;
+}
 
 *{
   margin: 0;
