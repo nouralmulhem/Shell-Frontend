@@ -12,6 +12,7 @@ import About from './Components/About/About';
 
 // Styles
 import './App.css';
+import Sponser from './Components/Sponser/Sponser';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route exact path="/AddPost" element={<PostForm />} />
             <Route exact path="/Recruitment" element={<RecruitmentPage />} />
             <Route exact path="/AddAdmin" element={<AddAdmin />} />
+            <Route exact path="/Sponser" element={<Sponser />} />
 
           </Routes>
         </Router>
