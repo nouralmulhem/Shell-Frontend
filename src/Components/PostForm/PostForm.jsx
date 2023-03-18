@@ -52,21 +52,7 @@ export default function PostForm() {
           placeholder="Description"
           required
         />
-
         <Title id="img" label="Image link" variant="standard" />
-
-        {/* <Upload
-          variant="contained"
-          component="label"
-        >
-          Upload File
-          <input
-            id="img"
-            type="text"
-
-          />
-        </Upload> */}
-
         <Button variant="contained" endIcon={<SendIcon />} type="submit">
           Submit
         </Button>
