@@ -5,8 +5,9 @@ import Box from '@mui/material/Box';
 import { Typography, useMediaQuery } from '@mui/material';
 
 import { useEffect } from 'react';
-import { Image } from './styles';
+import { BlockedBox, Image } from './styles';
 import { GetSponsor } from './server';
+import { Title } from '../style';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -27,25 +28,30 @@ export default function ListSponsers() {
   const matches = useMediaQuery(theme.breakpoints.down('md'));// matches= (currentbreakpoint<md)
 
   return (
-    <Box sx={{ width: '80%', margin: '40px auto' }}>
-      <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 5 }}>
-        { info?.map((entity) => (
-          <Grid item xs={matches ? 12 : 4} key={entity.id}>
-            <Item sx={{ padding: '40px 20px', minHeight: '470px' }}>
-              <Box sx={{
-                width: '100%', height: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 4,
-              }}
-              >
-                <Image src={entity.picture} />
-              </Box>
-              <Typography variant="h5" sx={{ fontWeight: 'bold', marginBottom: '5px' }}>{entity.company_name}</Typography>
-              <Typography variant="body">
-                {entity.brief}
-              </Typography>
-            </Item>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    <BlockedBox>
+      <Box sx={{ width: '50%' }}>
+        <Title>Meet our Sponsors</Title>
+      </Box>
+      <Box sx={{ width: '80%', margin: '40px auto' }}>
+        <Grid container rowSpacing={5} columnSpacing={{ xs: 1, sm: 2, md: 5 }}>
+          { info?.map((entity) => (
+            <Grid item xs={matches ? 12 : 4} key={entity.id}>
+              <Item sx={{ padding: '40px 20px', minHeight: '470px' }}>
+                <Box sx={{
+                  width: '100%', height: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 4,
+                }}
+                >
+                  <Image src={entity.picture} />
+                </Box>
+                <Typography variant="h5" sx={{ fontWeight: 'bold', marginBottom: '5px' }}>{entity.company_name}</Typography>
+                <Typography variant="body">
+                  {entity.brief}
+                </Typography>
+              </Item>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </BlockedBox>
   );
 }

@@ -1,4 +1,4 @@
-import { Button, TextField } from '@mui/material';
+import { Box, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import Swal from 'sweetalert2';
 // axios
@@ -12,6 +12,7 @@ import {
   BoxObj, FirstRow, InputConatiner, Row, SubmitConatiner,
   // Upload,
 } from './style';
+import { Title } from '../style';
 
 export default function BeSponser() {
   const [name, setName] = useState('');
@@ -67,6 +68,9 @@ export default function BeSponser() {
   return (
     <div className="FormHeader">
       <BoxObj onSubmit={handleClick}>
+        <Box sx={{ width: '50%', marginBottom: 2 }}>
+          <Title>Become our Sponsors</Title>
+        </Box>
         <FirstRow>
           <InputConatiner>
             <AccountCircle sx={{ color: 'action.active', mr: 1 }} />

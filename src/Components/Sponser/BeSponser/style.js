@@ -8,7 +8,7 @@ export const BoxObj = styled('form')(() => ({
   flexDirection: 'column',
   // justifyContent: 'center',
   alignItems: 'center',
-  boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);',
+  // boxShadow: '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);',
   borderRadius: 10,
   padding: '13px 20px 40px',
   width: '90%',
