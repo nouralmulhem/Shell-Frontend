@@ -8,6 +8,7 @@ import ResponsiveAppBar from './Components/Navebar/HosnyNavbar';
 import Pages from './Pages/Pages';
 import RecruitmentPage from './Pages/RecruitmentPage';
 import AddAdmin from './Components/Authentication/AddAdmin/AddAdmin';
+import About from './Components/About/About';
 
 // Styles
 import './App.css';
@@ -21,6 +22,7 @@ function App() {
           <ResponsiveAppBar />
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/About" element={<About />} />
             <Route exact path="/login" element={<Pages />} />
             <Route exact path="/AddPost" element={<PostForm />} />
             <Route exact path="/Recruitment" element={<RecruitmentPage />} />

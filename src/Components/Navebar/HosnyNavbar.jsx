@@ -39,7 +39,7 @@ function ResponsiveAppBar() {
   };
   const handleAbout = () => {
     handleCloseNavMenu();
-    console.log('About');
+    window.location.pathname = 'About';
   };
   const handleAddPost = () => {
     handleCloseNavMenu();
@@ -93,7 +93,7 @@ function ResponsiveAppBar() {
                 <PostLink2 to="/">Gallary</PostLink2>
               </MenuItem>
               <MenuItem key="About" onClick={handleAbout}>
-                <PostLink2 to="/">About</PostLink2>
+                <PostLink2 to="/About">About Us</PostLink2>
               </MenuItem>
               <MenuItem key="AddPost" onClick={handleAddPost}>
                 <PostLink2 to="/AddPost">Add Post</PostLink2>
@@ -128,7 +128,7 @@ function ResponsiveAppBar() {
               <Button onClick={handleCloseNavMenu}><PostLink to="/">HOME</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/Sponser">Sponser</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/">Gallary</PostLink></Button>
-              <Button onClick={handleCloseNavMenu}><PostLink to="/">About</PostLink></Button>
+              <Button onClick={handleCloseNavMenu}><PostLink to="/About">About Us</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/AddPost">Add Post</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/Recruitment">join us</PostLink></Button>
 
