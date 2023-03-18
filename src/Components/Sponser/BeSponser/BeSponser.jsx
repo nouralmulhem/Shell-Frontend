@@ -13,8 +13,6 @@ import {
   // Upload,
 } from './style';
 
-const widthInput = 200;
-
 export default function BeSponser() {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
@@ -70,7 +68,7 @@ export default function BeSponser() {
     <div className="FormHeader">
       <BoxObj onSubmit={handleClick}>
         <FirstRow>
-          <InputConatiner sx={{ width: widthInput }}>
+          <InputConatiner>
             <AccountCircle sx={{ color: 'action.active', mr: 1 }} />
             <TextField
               label="Name"
@@ -83,7 +81,7 @@ export default function BeSponser() {
               InputProps={{ inputProps: { min: 1, max: 50 } }}
             />
           </InputConatiner>
-          <InputConatiner sx={{ width: widthInput }}>
+          <InputConatiner>
             <BusinessIcon sx={{ color: 'action.active', mr: 1 }} />
             <TextField
               label="Company"
@@ -98,7 +96,7 @@ export default function BeSponser() {
           </InputConatiner>
         </FirstRow>
         <Row>
-          <InputConatiner sx={{ width: widthInput }}>
+          <InputConatiner>
             <LocalPhoneRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
             <TextField
               label="Phone"
@@ -110,7 +108,7 @@ export default function BeSponser() {
               error={error && (phone?.length <= 0 || phone === undefined)}
             />
           </InputConatiner>
-          <SubmitConatiner sx={{ width: widthInput }}>
+          <SubmitConatiner>
             <Button variant="contained" endIcon={<SendIcon />} type="submit">
               Submit
             </Button>
