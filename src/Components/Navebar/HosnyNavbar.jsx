@@ -95,9 +95,19 @@ function ResponsiveAppBar() {
               <MenuItem key="About" onClick={handleAbout}>
                 <PostLink2 to="/About">About Us</PostLink2>
               </MenuItem>
-              <MenuItem key="AddPost" onClick={handleAddPost}>
-                <PostLink2 to="/AddPost">Add Post</PostLink2>
-              </MenuItem>
+              {isAdmin()
+                ? (
+                  <>
+                    <MenuItem key="AddPost" onClick={handleAddPost}>
+                      <PostLink2 to="/AddPost">Add Post</PostLink2>
+                    </MenuItem>
+                    <MenuItem key="AddAdmin" onClick={handleAddPost}>
+                      <PostLink2 to="/AddAdmin">Add Admin</PostLink2>
+                    </MenuItem>
+
+                  </>
+                ) : null}
+
               <MenuItem key="AddPost" onClick={handleJoinUs}>
                 <PostLink2 to="/Recruitment">join us</PostLink2>
               </MenuItem>
@@ -129,7 +139,8 @@ function ResponsiveAppBar() {
               <Button onClick={handleCloseNavMenu}><PostLink to="/Sponser">Sponser</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/">Gallary</PostLink></Button>
               <Button onClick={handleCloseNavMenu}><PostLink to="/About">About Us</PostLink></Button>
-              <Button onClick={handleCloseNavMenu}><PostLink to="/AddPost">Add Post</PostLink></Button>
+              {/* <Button onClick={handleCloseNavMenu}><PostLink to="/AddPost">Add Post</PostLink></Button> */}
+              {isAdmin() ? <Button><PostLink to="/AddPost">Add Post</PostLink></Button> : null}
               <Button onClick={handleCloseNavMenu}><PostLink to="/Recruitment">join us</PostLink></Button>
 
             </Box>
