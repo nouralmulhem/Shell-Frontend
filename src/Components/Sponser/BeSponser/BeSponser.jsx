@@ -1,8 +1,7 @@
 import { Box, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import Swal from 'sweetalert2';
-// axios
-// import axios from '../../services/instance'
+import { useTheme } from '@mui/material/styles';
 import axios from 'axios';
 import { AccountCircle } from '@mui/icons-material';
 import LocalPhoneRoundedIcon from '@mui/icons-material/LocalPhoneRounded';
@@ -10,7 +9,6 @@ import BusinessIcon from '@mui/icons-material/Business';
 import { useState } from 'react';
 import {
   BoxObj, FirstRow, InputConatiner, Row, SubmitConatiner,
-  // Upload,
 } from './style';
 import { Title } from '../style';
 
@@ -56,6 +54,8 @@ export default function BeSponser() {
     }
   };
 
+  const theme = useTheme();
+
   const checkPhone = (e) => {
     const num = e?.target?.value;
     const start = num?.substring(0, 3);
@@ -68,7 +68,14 @@ export default function BeSponser() {
   return (
     <div className="FormSponser">
       <BoxObj onSubmit={handleClick}>
-        <Box sx={{ width: '50%', marginBottom: 2 }}>
+        <Box sx={{
+          width: '50%',
+          marginBottom: 2,
+          [theme.breakpoints.between('0', '650')]: {
+            width: '80%',
+          },
+        }}
+        >
           <Title>Become our Sponsors</Title>
         </Box>
         <FirstRow>

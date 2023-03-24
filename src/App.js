@@ -14,6 +14,7 @@ import About from './Components/About/About';
 import './App.css';
 import Sponser from './Components/Sponser/Sponser';
 import Footer from './Components/Footer/Footer';
+import Gallery from './Components/Gallery/Gallery';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route exact path="/Recruitment" element={<RecruitmentPage />} />
             <Route exact path="/AddAdmin" element={<AddAdmin />} />
             <Route exact path="/Sponser" element={<Sponser />} />
+            <Route exact path="/Gallery" element={<Gallery />} />
           </Routes>
           <Footer />
         </Router>

@@ -1,14 +1,23 @@
 import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import CallIcon from '@mui/icons-material/Call';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
+import EmailIcon from '@mui/icons-material/Email';
+import { useState } from 'react';
+import { Snackbar } from '@mui/material';
 import { Container, PostLink, SecContainer } from './style';
 
 export default function Footer() {
   const handleClick = (path) => {
     window.location.replace(path);
+  };
+
+  const [open, setOpen] = useState(false);
+
+  const handleCopy = (text) => {
+    setOpen(true);
+    navigator.clipboard.writeText(text);
   };
   return (
     <Container>
@@ -21,19 +30,26 @@ export default function Footer() {
         <Button><PostLink to="/Recruitment">join us</PostLink></Button>
       </SecContainer>
       <SecContainer>
-        <IconButton component="label" onClick={() => handleClick('https://www.facebook.com/')}>
+        <IconButton component="label" onClick={() => handleClick('https://www.facebook.com/ShellEcoMarathonCUT')}>
           <FacebookIcon />
         </IconButton>
-        <IconButton component="label" onClick={() => handleClick('https://twitter.com/')}>
-          <TwitterIcon />
+        <IconButton component="label" onClick={() => handleCopy('Teammanagercuert23@gmail.com')}>
+          <EmailIcon />
         </IconButton>
-        <IconButton component="label" onClick={() => handleClick('https://www.instagram.com/')}>
-          <InstagramIcon />
+        <IconButton component="label" onClick={() => handleCopy('01014569572')}>
+          <CallIcon />
         </IconButton>
-        <IconButton component="label" onClick={() => handleClick('https://www.linkedin.com/')}>
+        <IconButton component="label" onClick={() => handleClick('https://www.linkedin.com/company/cairo-university-eco-racing-team/')}>
           <LinkedInIcon />
         </IconButton>
       </SecContainer>
+      <Snackbar
+        message="Copied to clibboard"
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        autoHideDuration={2000}
+        onClose={() => setOpen(false)}
+        open={open}
+      />
     </Container>
   );
 }

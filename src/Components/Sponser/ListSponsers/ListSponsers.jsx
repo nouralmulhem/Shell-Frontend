@@ -29,7 +29,13 @@ export default function ListSponsers() {
 
   return (
     <BlockedBox>
-      <Box sx={{ width: '50%' }}>
+      <Box sx={{
+        width: '50%',
+        [theme.breakpoints.between('0', '650')]: {
+          width: '80%',
+        },
+      }}
+      >
         <Title>Meet our Sponsors</Title>
       </Box>
       <Box sx={{ width: '80%', margin: '40px auto' }}>

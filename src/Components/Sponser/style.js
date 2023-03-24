@@ -12,6 +12,8 @@ export const Title = styled(Typography)(({ theme }) => ({
   marginTop: 50,
   borderRadius: 10,
   [theme.breakpoints.between('0', '650')]: {
-    fontSize: '50px',
+    fontSize: '25px',
+    padding: '10px 20px',
+
   },
 }));
