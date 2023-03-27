@@ -25,6 +25,7 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
+  /*
   const handleHome = () => {
     handleCloseNavMenu();
     window.location.pathname = '';
@@ -49,11 +50,12 @@ function ResponsiveAppBar() {
     handleCloseNavMenu();
     window.location.pathname = 'Recruitment';
   };
+  */
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box component="img" alt="Our logo" src="./logo.svg" sx={{ color: 'white' }} onClick={handleHome} />
+          <PostLink component="img" alt="Our logo" src="./logo.svg" sx={{ color: 'white' }} to="/" />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -83,32 +85,32 @@ function ResponsiveAppBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              <MenuItem key="Home" onClick={handleHome}>
+              <MenuItem key="Home" onClick={handleCloseNavMenu}>
                 <PostLink2 to="/">HOME</PostLink2>
               </MenuItem>
-              <MenuItem key="Sponser" onClick={handleSponser}>
+              <MenuItem key="Sponser" onClick={handleCloseNavMenu}>
                 <PostLink2 to="/Sponser">Sponser</PostLink2>
               </MenuItem>
-              <MenuItem key="Gallery" onClick={handleGallary}>
+              <MenuItem key="Gallery" onClick={handleCloseNavMenu}>
                 <PostLink2 to="/Gallery">Gallery</PostLink2>
               </MenuItem>
-              <MenuItem key="About" onClick={handleAbout}>
+              <MenuItem key="About" onClick={handleCloseNavMenu}>
                 <PostLink2 to="/About">About Us</PostLink2>
               </MenuItem>
               {isAdmin()
                 ? (
                   <>
-                    <MenuItem key="AddPost" onClick={handleAddPost}>
+                    <MenuItem key="AddPost" onClick={handleCloseNavMenu}>
                       <PostLink2 to="/AddPost">Add Post</PostLink2>
                     </MenuItem>
-                    <MenuItem key="AddAdmin" onClick={handleAddPost}>
+                    <MenuItem key="AddAdmin" onClick={handleCloseNavMenu}>
                       <PostLink2 to="/AddAdmin">Add Admin</PostLink2>
                     </MenuItem>
 
                   </>
                 ) : null}
 
-              <MenuItem key="AddPost" onClick={handleJoinUs}>
+              <MenuItem key="AddPost" onClick={handleCloseNavMenu}>
                 <PostLink2 to="/Recruitment">join us</PostLink2>
               </MenuItem>
             </Menu>
@@ -147,10 +149,10 @@ function ResponsiveAppBar() {
             {isAdmin() ? <Button><PostLink to="/AddAdmin">Add Admin</PostLink></Button> : null}
             <Button onClick={() => {
               if (isLoggedIn) { Logout(); }
-              window.location.href = './login';
+              // window.location.href = './login';
             }}
             >
-              <PostLink to="">{isLoggedIn() ? 'Log out' : 'Sign in'}</PostLink>
+              <PostLink to="/login">{isLoggedIn() ? 'Log out' : 'Sign in'}</PostLink>
             </Button>
 
           </Box>

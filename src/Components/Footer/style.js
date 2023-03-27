@@ -8,7 +8,7 @@ export const Container = styled(Box)(() => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-
+  Buttom: 0,
 }));
 export const SecContainer = styled(Box)(() => ({
   display: 'flex',

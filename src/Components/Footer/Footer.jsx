@@ -24,10 +24,8 @@ export default function Footer() {
       <SecContainer>
         <Button><PostLink to="/">HOME</PostLink></Button>
         <Button><PostLink to="/Sponser">Sponser</PostLink></Button>
-        <Button><PostLink to="/">Gallary</PostLink></Button>
+        <Button><PostLink to="/Gallery">Gallary</PostLink></Button>
         <Button><PostLink to="/About">About Us</PostLink></Button>
-        <Button><PostLink to="/AddPost">Add Post</PostLink></Button>
-        <Button><PostLink to="/Recruitment">join us</PostLink></Button>
       </SecContainer>
       <SecContainer>
         <IconButton component="label" onClick={() => handleClick('https://www.facebook.com/ShellEcoMarathonCUT')}>
