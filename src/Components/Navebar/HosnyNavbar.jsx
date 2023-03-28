@@ -55,7 +55,9 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <PostLink component="img" alt="Our logo" src="./logo.svg" sx={{ color: 'white' }} to="/" />
+          <PostLink to="/">
+            <Box component="img" alt="Our logo" src="./logo.svg" sx={{ color: 'white' }} />
+          </PostLink>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
