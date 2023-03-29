@@ -35,11 +35,13 @@ function Signin({ btn, condition }) {
     })
       .then((response) => {
         console.log(response);
+
         if (response.status === 200 || response.status === 201) {
           const localStorageItem = response.data;
           localStorageItem.loggedIn = true;
+
           isAdmin(localStorageItem.access, localStorageItem);
-          window.location.href = './';
+          // window.location.href = './';
         }
       })
       .catch((error) => {

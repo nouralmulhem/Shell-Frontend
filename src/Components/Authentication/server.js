@@ -16,8 +16,17 @@ export const isAdmin = (token, localStorageItem) => {
       localStorageItem.admin = true;
     }
     localStorage.setItem('shell', JSON.stringify(localStorageItem));
+    window.location.href = './';
+    // setTimeout(() => {
+    //   window.location.href = './';
+    // }, 1000);
   }).catch((error) => {
     console.log(error);
     localStorage.setItem('shell', JSON.stringify(localStorageItem));
+    // window.location.href = './';
+
+    // setTimeout(() => {
+    //   window.location.href = './';
+    // }, 1000);
   });
 };

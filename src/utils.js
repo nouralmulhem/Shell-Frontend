@@ -8,6 +8,10 @@ export const getRefreshToken = () => {
   return items?.refresh;
 };
 
+export const reDirect = (route) => {
+  window.location.href = route;
+};
+
 export const isAdmin = () => {
   const items = JSON.parse(localStorage.getItem('shell'));
   console.log('isadmin', items?.admin);

@@ -38,10 +38,9 @@ function Signup({ btn2, condition }) {
         console.log(response.data);
         if (response.status === 200 || response.status === 201) {
           const localStorageItem = response.data;
-          localStorageItem.admin = isAdmin(localStorageItem.access);
           localStorageItem.loggedIn = true;
-          localStorage.setItem('shell', JSON.stringify(response.data));
-          window.location.href = './';
+
+          isAdmin(localStorageItem.access, localStorageItem);
         }
       })
       .catch((error) => {
