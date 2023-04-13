@@ -24,7 +24,7 @@ export default function Footer() {
       <SecContainer>
         <Button><PostLink to="/">HOME</PostLink></Button>
         <Button><PostLink to="/Sponser">Sponser</PostLink></Button>
-        <Button><PostLink to="/Gallery">Gallary</PostLink></Button>
+        <Button><PostLink to="/Gallery">Gallery</PostLink></Button>
         <Button><PostLink to="/About">About Us</PostLink></Button>
       </SecContainer>
       <SecContainer>

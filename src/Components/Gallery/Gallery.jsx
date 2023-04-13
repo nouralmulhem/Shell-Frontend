@@ -4,6 +4,8 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Box } from '@mui/material';
+import { useEffect } from 'react';
+import { GetGallery } from './server';
 
 function srcset(image, width, height, rows = 1, cols = 1) {
   return {
@@ -75,6 +77,12 @@ const itemData = [
 ];
 
 export default function Gallery() {
+  const [info] = GetGallery();
+
+  useEffect(() => {
+    console.log(info);
+  }, [info]);
+
   return (
     <Box sx={{
       display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '30px', marginBottom: '30px',

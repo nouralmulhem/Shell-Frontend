@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 export const Register = (info) => {
   axios
@@ -26,11 +27,23 @@ export const Register = (info) => {
       student_activity_name_role: info?.q14,
       hours_given: info?.q13,
     })
-    .then((res) => {
-      console.log(res);
-      console.log('fffffffffff');
-    })
-    .catch((error) => {
+    .then((response) => {
+      console.log(response);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'We will contact you ',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      if (response.status === 401) {
+        window.location.pathname = 'login';
+      }
+      setTimeout(() => {
+        document.location.href = './';
+      }, 3000);
+    }).catch((error) => {
       console.log(error);
+      alert(`${error?.response?.data}\n`);
     });
 };

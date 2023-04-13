@@ -19,8 +19,6 @@ export default function Page1(props) {
     graduationYear, major, faculty,
   } = props;
 
-  const widthInput = 400;
-
   const checkPhone = (e, data) => {
     const num = e?.target?.value;
     const start = num?.substring(0, 3);
@@ -45,7 +43,7 @@ export default function Page1(props) {
   return (
     <Container>
       <FirstRow>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <AccountCircle sx={{ color: 'action.active', mr: 1 }} />
           <TextField
             defaultValue={info?.name}
@@ -58,7 +56,7 @@ export default function Page1(props) {
             error={error && (name?.length <= 0 || name === undefined)}
           />
         </InputConatiner>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <EmailRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <TextField
             defaultValue={info?.email}
@@ -73,7 +71,7 @@ export default function Page1(props) {
         </InputConatiner>
       </FirstRow>
       <Row>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <LocalPhoneRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <TextField
             defaultValue={info?.phone}
@@ -86,7 +84,7 @@ export default function Page1(props) {
             error={error && (phone?.length <= 0 || phone === undefined)}
           />
         </InputConatiner>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <PhoneIphoneRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <TextField
             defaultValue={info?.whatsApp}
@@ -111,7 +109,7 @@ export default function Page1(props) {
             onChange={(e) => setFaculty(e.target.value)}
           />
         </InputConatiner> */}
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <AccountBalanceRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <FormControl variant="standard" fullWidth>
             <InputLabel required id="demo-simple-select-standard-label">Faculty</InputLabel>
@@ -140,7 +138,7 @@ export default function Page1(props) {
             </Select>
           </FormControl>
         </InputConatiner>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <GradeRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           {/* <TextField
             defaultValue={info?.major}
@@ -174,7 +172,7 @@ export default function Page1(props) {
         </InputConatiner>
       </Row>
       <Row>
-        <InputConatiner sx={{ width: widthInput }}>
+        <InputConatiner>
           <SchoolRoundedIcon sx={{ color: 'action.active', mr: 1 }} />
           <FormControl variant="standard" fullWidth>
             <InputLabel required id="demo-simple-select-standard-label1">Graduation Year</InputLabel>
