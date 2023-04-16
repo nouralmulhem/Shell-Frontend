@@ -8,7 +8,7 @@ function AboutUs() {
   // eslint-disable-next-line no-unused-vars
   const { setStep, info, setInfo } = useRecruitmentContext();
   const [error, setError] = useState(false);
-  const [questions, setQuestions] = useState([info?.q7 || '', info?.q8 || '', info?.q9 || '', info?.q10 || '', info?.q11 || '', info?.q12 || '', info?.q13 || '', info?.q14 || '']);
+  const [questions, setQuestions] = useState([info?.q7, info?.q8, info?.q9, info?.q10, info?.q11, info?.q12, info?.q13, info?.q14]);
 
   const handleSubmit = () => {
     if (questions.slice(3, 7).filter((q) => (q.length <= 0)).length !== 0
