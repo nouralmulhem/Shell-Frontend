@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { ContainerObj } from '../../styles/Layout';
 import { ButtonSignUp } from '../../styles/SignupOverlay';
-import SignIn from './SignIn';
+import Signin from './Signin';
 import Signup from './Signup';
 
 const useStyles = makeStyles({

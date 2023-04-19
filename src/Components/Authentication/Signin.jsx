@@ -14,7 +14,7 @@ import SnackBar from '../SnackBar';
 import { logIn } from './server';
 // import { isAdmin } from './server';
 
-function SignIn({ btn, condition }) {
+function Signin({ btn, condition }) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
@@ -69,4 +69,4 @@ function SignIn({ btn, condition }) {
   );
 }
 
-export default SignIn;
+export default Signin;

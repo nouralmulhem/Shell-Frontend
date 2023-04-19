@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { ContainerObj } from '../../styles/Layout';
-import SignIn from './SignIn';
+import Signin from './Signin';
 import SignInOverlay from './SignInOverlay';
 import Signup from './Signup';
 import SignUpOverlay from './SignUpOverlay';
