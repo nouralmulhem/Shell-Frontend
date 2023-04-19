@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // MUI
-import { Typography, TextField, Link } from '@mui/material';
+import { Typography, TextField } from '@mui/material';
 
 // Styles
 import { useState } from 'react';
@@ -87,9 +87,9 @@ function Signin({ btn, condition }) {
             setPassword(e.target.value.trim());
           }}
         />
-        <Link href="/" variant="body2">
+        {/* <Link href="/" variant="body2">
           Forgot your password?
-        </Link>
+        </Link> */}
         <ButtonSign variant="outlined" type="submit">Sign in</ButtonSign>
         {btn}
 

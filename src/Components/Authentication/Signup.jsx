@@ -9,7 +9,7 @@ import { NameTextField } from '../../styles/Signup';
 
 // Components
 import SnackBar from '../SnackBar';
-import SocialAccounts from './SocialAccounts';
+// import SocialAccounts from './SocialAccounts';
 import { isAdmin } from './server';
 
 function Signup({ btn2, condition }) {
@@ -62,13 +62,13 @@ function Signup({ btn2, condition }) {
 
   return (
     <>
-      <SignConatiner condition={condition} onSubmit={signUp}>
+      <SignConatiner condition={condition} condition2 onSubmit={signUp}>
         <TypographyH3 variant="h4" sx={{ color: 'black' }}>
           Create Account
         </TypographyH3>
-        <SocialAccounts />
+        {/* <SocialAccounts /> */}
         <Typography variant="subtitle">
-          or use your email for regrstration
+          use your email for regrstration
         </Typography>
         <NameTextField>
           <TextField
