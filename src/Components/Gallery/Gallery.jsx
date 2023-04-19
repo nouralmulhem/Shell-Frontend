@@ -16,66 +16,6 @@ function srcset(image, width, height, rows = 1, cols = 1) {
   };
 }
 
-const itemData = [
-  {
-    img: 'Gallery/pic1.JPG',
-    title: 'General Meetings',
-    featured: true,
-  },
-  {
-    img: 'gallery/pic4.JPG',
-    title: 'معرض القاهرة الدولي',
-  },
-  {
-    img: 'gallery/pic5.JPG',
-    title: 'EGYPS',
-  },
-  {
-    img: 'gallery/pic2.JPG',
-    title: 'Autonomous',
-  },
-  {
-    img: 'gallery/pic3.jpg',
-    title: 'While Working',
-  },
-  {
-    img: 'gallery/pic7.JPG',
-    title: 'Car',
-    featured: true,
-  },
-  {
-    img: 'gallery/pic9.JPG',
-    title: 'Team',
-  },
-  {
-    img: 'gallery/pic10.jpeg',
-    title: '57357',
-  },
-  {
-    img: 'gallery/pic11.JPG',
-    title: 'Competition',
-  },
-  {
-    img: 'gallery/pic12.jpg',
-    title: 'Job Fair',
-  },
-  {
-    img: 'gallery/pic13.jpg',
-    title: 'MILS',
-    featured: true,
-
-  },
-  {
-    img: 'gallery/pic14.JPG',
-    title: 'While Working',
-  },
-  {
-    img: 'gallery/pic15.jpg',
-    title: 'While Working',
-  },
-
-];
-
 export default function Gallery() {
   const [info] = GetGallery();
 
@@ -99,7 +39,7 @@ export default function Gallery() {
         rowHeight={300}
         gap={0}
       >
-        {itemData.map((item) => {
+        {info?.map((item) => {
           const cols = item.featured ? 2 : 1;
           const rows = item.featured ? 2 : 1;
 
