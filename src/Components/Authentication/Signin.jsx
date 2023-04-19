@@ -1,7 +1,3 @@
-// axios
-// import axios from '../../services/instance'
-import axios from 'axios';
-
 // MUI
 import { Typography, TextField } from '@mui/material';
 
@@ -15,50 +11,24 @@ import SocialAccounts from './SocialAccounts';
 import SnackBar from '../SnackBar';
 
 // Server
-import { isAdmin } from './server';
+import { logIn } from './server';
+// import { isAdmin } from './server';
 
-function Signin({ btn, condition }) {
+function SignIn({ btn, condition }) {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const [openSnackBar, setOpenSnackBar] = useState(false);
   const [snackBar, setSnackBar] = useState({ message: '' });
-
-  const signIn = (e) => {
-    e.preventDefault();
-    console.log(userName);
-    console.log(password);
-
-    axios.post('https://cuert-backend-api.herokuapp.com/auth/login/', {
-      username: userName,
-      password,
-    })
-      .then((response) => {
-        console.log(response);
-
-        if (response.status === 200 || response.status === 201) {
-          const localStorageItem = response.data;
-          localStorageItem.loggedIn = true;
-
-          isAdmin(localStorageItem.access, localStorageItem);
-          // window.location.href = './';
-        }
-      })
-      .catch((error) => {
-        if (error.response.status === 401) {
-          // Unauthorized
-          setOpenSnackBar(true);
-          setSnackBar({
-            message: 'Incorrect username or password',
-          });
-        } else {
-          console.log(error);
-        }
-      });
-  };
   return (
     <>
-      <SignConatiner condition={condition} onSubmit={signIn}>
+      <SignConatiner
+        condition={condition}
+        onSubmit={(e) => {
+          e.preventDefault();
+          logIn(userName, password, setOpenSnackBar, setSnackBar);
+        }}
+      >
         {/* Sign in */}
         <TypographyH3 variant="h3" sx={{ color: 'black' }}>
           Sign in
@@ -99,4 +69,4 @@ function Signin({ btn, condition }) {
   );
 }
 
-export default Signin;
+export default SignIn;

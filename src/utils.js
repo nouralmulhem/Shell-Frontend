@@ -1,3 +1,7 @@
+export const setLocalStorage = (key, value) => {
+/* value:Json Object */
+  localStorage.setItem(key, JSON.stringify(value));
+};
 export const getAccessToken = () => {
   const items = JSON.parse(localStorage.getItem('shell'));
   return items.access;
@@ -14,7 +18,6 @@ export const reDirect = (route) => {
 
 export const isAdmin = () => {
   const items = JSON.parse(localStorage.getItem('shell'));
-  console.log('isadmin', items?.admin);
   return items?.admin;
 };
 

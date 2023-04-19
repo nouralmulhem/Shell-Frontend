@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { ContainerObj } from '../../styles/Layout';
-import Signin from './Signin';
+import SignIn from './SignIn';
 import SignInOverlay from './SignInOverlay';
 import Signup from './Signup';
 import SignUpOverlay from './SignUpOverlay';
@@ -41,7 +41,7 @@ function LayoutDesktop() {
     <div className="FormHeader">
       <ContainerObj dirc="column">
         <Box id="first" className="init" sx={{ display: 'flex', minHeight: '100%' }}>
-          <Signin condition />
+          <SignIn condition />
           <SignUpOverlay handleClick={handleClick} />
         </Box>
         <Box id="second" className="init" sx={{ display: 'flex', minHeight: '100%' }}>

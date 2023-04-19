@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,7 +13,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { PostLink, PostLink2 } from './Navbar';
 
 // Utils
-import { isAdmin, isLoggedIn, Logout } from '../../utils';
+import {
+  isAdmin, isLoggedIn, Logout, reDirect,
+} from '../../utils';
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -149,14 +152,19 @@ function ResponsiveAppBar() {
 
             </Box>
             {isAdmin() ? <Button><PostLink to="/AddAdmin">Add Admin</PostLink></Button> : null}
-            <Button onClick={() => {
-              if (isLoggedIn) { Logout(); }
-              // window.location.href = './login';
-            }}
-            >
-              <PostLink to="/login">{isLoggedIn() ? 'Log out' : 'Sign in'}</PostLink>
-            </Button>
+            <Button>
+              {
+}
+              {console.log(isLoggedIn())}
+              <PostLink onClick={() => {
+                Logout();
+                reDirect('/login');
+              }}
+              >
+                {isLoggedIn() ? 'Log out' : 'Sign in'}
 
+              </PostLink>
+            </Button>
           </Box>
         </Toolbar>
       </Container>
