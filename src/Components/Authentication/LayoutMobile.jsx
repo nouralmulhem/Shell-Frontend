@@ -43,7 +43,7 @@ function LayoutMobile() {
     <div className="FormHeader">
       <ContainerObj dirc="row">
         <Box id="first" className="init" sx={{ minWidth: '100%' }}>
-          <SignIn btn={btn} condition={false} />
+          <Signin btn={btn} condition={false} />
         </Box>
         <Box id="second" className="init" sx={{ minWidth: '100%' }}>
           <Signup btn2={btn2} condition={false} />

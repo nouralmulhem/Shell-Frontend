@@ -41,7 +41,7 @@ function LayoutDesktop() {
     <div className="FormHeader">
       <ContainerObj dirc="column">
         <Box id="first" className="init" sx={{ display: 'flex', minHeight: '100%' }}>
-          <SignIn condition />
+          <Signin condition />
           <SignUpOverlay handleClick={handleClick} />
         </Box>
         <Box id="second" className="init" sx={{ display: 'flex', minHeight: '100%' }}>
