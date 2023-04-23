@@ -4,8 +4,8 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { Box } from '@mui/material';
-import { useEffect } from 'react';
-import { GetGallery } from './server';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function srcset(image, width, height, rows = 1, cols = 1) {
   return {
@@ -17,11 +17,22 @@ function srcset(image, width, height, rows = 1, cols = 1) {
 }
 
 export default function Gallery() {
-  const [info] = GetGallery();
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    console.log(info);
-  }, [info]);
+    axios
+      .get('https://cuert-backend-api.herokuapp.com/gallery/')
+      .then((response) => {
+        console.log(response);
+        if (response.status === 401) {
+          window.location.pathname = 'login';
+        }
+        setInfo(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <Box sx={{

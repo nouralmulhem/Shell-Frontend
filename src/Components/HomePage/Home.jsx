@@ -7,9 +7,6 @@ import axios from 'axios';
 import Card from '../Card/NewCard';
 
 export default function Home() {
-  // let {posts:post} = useFetch('http://localhost:8000/posts');
-  // let {posts:post} = useFetch('http://localhost:8000/members/posts/');
-
   const [posts, setPosts] = React.useState(null);
   const [statusCode, setStatusCode] = React.useState(null);
 

@@ -4,9 +4,9 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Typography, useMediaQuery } from '@mui/material';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { BlockedBox, Image } from './styles';
-import { GetSponsor } from './server';
 import { Title } from '../style';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,11 +18,22 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function ListSponsers() {
-  const [info] = GetSponsor();
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
-    console.log(info);
-  }, [info]);
+    axios
+      .get('https://cuert-backend-api.herokuapp.com/sponsors/')
+      .then((response) => {
+        console.log(response);
+        if (response.status === 401) {
+          window.location.pathname = 'login';
+        }
+        setInfo(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));// matches= (currentbreakpoint<md)
