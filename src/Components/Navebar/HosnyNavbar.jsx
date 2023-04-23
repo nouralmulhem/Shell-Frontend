@@ -153,13 +153,12 @@ function ResponsiveAppBar() {
             </Box>
             {isAdmin() ? <Button><PostLink to="/AddAdmin">Add Admin</PostLink></Button> : null}
             <Button>
-              {
-}
               {console.log(isLoggedIn())}
-              <PostLink onClick={() => {
-                Logout();
-                reDirect('/login');
-              }}
+              <PostLink
+                to="/login"
+                onClick={() => {
+                  Logout();
+                }}
               >
                 {isLoggedIn() ? 'Log out' : 'Sign in'}
 
